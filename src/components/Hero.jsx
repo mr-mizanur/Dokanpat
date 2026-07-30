@@ -315,7 +315,7 @@ export default function Hero() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent flex items-end p-4">
                   <span className="text-[11px] font-bold text-blue-300 bg-slate-950/80 px-3.5 py-1 rounded-full border border-slate-800 backdrop-blur-md shadow-lg">
-                    ✨ Featured Collection #{index + 1}
+                     Featured Collection #{index + 1}
                   </span>
                 </div>
               </div>
