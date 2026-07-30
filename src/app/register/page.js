@@ -253,8 +253,8 @@ export default function RegisterPage() {
     role: 'buyer', 
     image: null,
     address: '',
-    shopName: '',       // দোকানের নাম
-    shopUsername: ''    // অটো-জেনারেটেড শপ ইউজারনেম
+    shopName: '',       
+    shopUsername: ''    
   });
   const [previewImage, setPreviewImage] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -268,10 +268,10 @@ export default function RegisterPage() {
     }
   };
 
-  // দোকানের নাম থেকে অটো ইউজারনেম জেনারেট করার ফাংশন
+ 
   const handleShopNameChange = (e) => {
     const name = e.target.value;
-    // স্পেস রিমুভ করে লোয়ারকেস এবং স্পেশাল ক্যারেক্টার বাদ দিয়ে ইউজারনেম তৈরি
+    
     const generatedUsername = name
       .toLowerCase()
       .trim()
@@ -285,7 +285,7 @@ export default function RegisterPage() {
     });
   };
 
-  // ব্রাউজার থেকে অটো লোকেশন ডিটেক্ট করার ফাংশন
+  
   const handleAutoDetectLocation = () => {
     if (!navigator.geolocation) {
       toast.error('Geolocation is not supported by your browser');
@@ -335,7 +335,7 @@ export default function RegisterPage() {
       return;
     }
 
-    // সেলার হলে শপ নেম বাধ্যতামূলক করা
+   
     if (formData.role === 'seller' && !formData.shopName.trim()) {
       toast.error('Store name is required for sellers!');
       return;
@@ -363,7 +363,7 @@ export default function RegisterPage() {
         }
       }
 
-      // Better Auth দিয়ে সাইন আপ (shopName এবং shopUsername সহ)
+     
       const { data, error } = await signUp.email({
         email: formData.email,
         password: formData.password,
@@ -464,7 +464,7 @@ export default function RegisterPage() {
             </div>
           </div>
 
-          {/* সেলার সিলেক্ট করলে শপ নেম ফিল্ড শো করবে */}
+        
           {formData.role === 'seller' && (
             <div className="space-y-3 p-4 bg-slate-950/60 border border-slate-800/80 rounded-xl">
               <div className="space-y-1.5">

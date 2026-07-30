@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Store, Mail, Lock, ArrowRight } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
-import { signIn } from '@/lib/auth-client'; // auth-client থেকে signIn امপোর্ট করা হলো
+import { signIn } from '@/lib/auth-client'; 
 
 export default function LoginPage() {
   const router = useRouter();
@@ -17,7 +17,7 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
-      // Better Auth দিয়ে রিয়েল সাইন-ইন রিকোয়েস্ট
+    
       const { data, error } = await signIn.email({
         email: formData.email,
         password: formData.password,
@@ -34,7 +34,7 @@ export default function LoginPage() {
             },
           });
 
-          // লগইন করা ইউজারের ডাটা ফেচ করে রোল চেক করা (সেলার নাকি বায়ার)
+         
           const sessionRes = await fetch('/api/auth/get-session');
           const session = await sessionRes.json();
           const userRole = session?.user?.role;
@@ -76,7 +76,7 @@ export default function LoginPage() {
       
       <div className="max-w-md w-full space-y-8 bg-slate-900/80 border border-slate-800/80 p-8 rounded-2xl backdrop-blur-xl shadow-2xl">
         
-        {/* Header */}
+        
         <div className="text-center space-y-2">
           <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-600/10 border border-blue-500/20 text-blue-400 mb-2">
             <Store className="w-6 h-6" />
@@ -85,7 +85,7 @@ export default function LoginPage() {
           <p className="text-xs text-slate-400">Sign in to your MarketPulse account</p>
         </div>
 
-        {/* Form */}
+       
         <form onSubmit={handleSubmit} className="space-y-5">
           <div className="space-y-1.5">
             <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Email Address</label>
