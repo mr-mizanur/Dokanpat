@@ -182,7 +182,7 @@ export default function Hero() {
   const [loading, setLoading] = useState(true);
   const [cart, setCart] = useState([]);
 
-  // 🔥 Public ফোল্ডারের ভেতরের image ফোল্ডার থেকে সঠিক পাথ
+  
   const adBanners = [
     {
       text: "মার্কেটপালসে স্বাগতম! সেরা বিক্রেতাদের প্রিমিয়াম পণ্য থেকে আজই আপনার পছন্দের কেনাকাটা করুন।",
@@ -253,7 +253,7 @@ export default function Hero() {
     setCart(updatedCart);
     localStorage.setItem('store_cart', JSON.stringify(updatedCart));
 
-    toast.success(`${product.name} added to cart! 🛒`, {
+    toast.success(`${product.name} added to cart! `, {
       style: { background: '#090d16', color: '#fff', border: '1px solid #1e293b' },
     });
   };
@@ -265,11 +265,11 @@ export default function Hero() {
     <div className="min-h-screen bg-slate-950 text-slate-100">
       <Toaster position="top-right" />
 
-      {/* Hero Section */}
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 bg-slate-900/80 border border-slate-800/80 p-6 sm:p-10 rounded-3xl backdrop-blur-xl shadow-2xl items-center">
           
-          {/* Left Side: Text & Ad Announcement */}
+          
           <div className="lg:col-span-7 space-y-5">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-600/10 border border-blue-500/20 text-blue-400 text-xs font-semibold">
               <Sparkles className="w-3.5 h-3.5" />
@@ -285,7 +285,7 @@ export default function Hero() {
               </p>
             </div>
 
-            {/* Bangla Ad Banner Box */}
+            
             <div className="flex items-center gap-3 px-5 py-3.5 rounded-2xl bg-blue-950/50 border border-blue-800/50 text-blue-200 text-xs sm:text-sm font-semibold shadow-inner overflow-hidden w-full">
               <Megaphone className="w-5 h-5 text-blue-400 shrink-0 animate-bounce" />
               <div className="h-6 flex items-center relative w-full overflow-hidden">
@@ -299,7 +299,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Side: Image Slider */}
+          
           <div className="lg:col-span-5 relative h-60 sm:h-72 w-full rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950 shadow-2xl group">
             {adBanners.map((banner, index) => (
               <div
@@ -322,7 +322,7 @@ export default function Hero() {
             ))}
           </div>
 
-          {/* Cart & Checkout Action Bar */}
+          
           <div className="lg:col-span-12 flex flex-col sm:flex-row items-center justify-between gap-4 bg-slate-950 border border-slate-800 px-6 py-4 rounded-2xl mt-2">
             <div className="flex items-center gap-4">
               <Link href="/cart" className="relative flex items-center gap-2">
@@ -350,7 +350,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Products Section */}
+      
       <main className="max-w-7xl mx-auto px-4 sm:px-8 py-12 space-y-8">
         <h2 className="text-xl sm:text-2xl font-bold text-slate-200">Available Products</h2>
 
