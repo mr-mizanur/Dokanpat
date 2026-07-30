@@ -14,15 +14,44 @@ It features a futuristic dark-mode UI with glassmorphism aesthetics, secure auth
 
 ## Screenshots & Preview
 
-<div align="center">
-  <img src="/public/image/MarketPulse2.png" alt="Dashboard Preview 1" width="48%" style="border-radius: 8px; border: 1px solid #1e293b;" />
-  <img src="/public/image/MarketPulse3.png" alt="Dashboard Preview 2" width="48%" style="border-radius: 8px; border: 1px solid #1e293b;" />
-</div>
+## 📸 Screenshots & Preview
 
-<br/>
+<style>
+  .slideshow {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    height: 450px;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid #1e293b;
+  }
+  .slideshow img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: fade 9s infinite;
+  }
+  .slideshow img:nth-child(1) { animation-delay: 0s; }
+  .slideshow img:nth-child(2) { animation-delay: 3s; }
+  .slideshow img:nth-child(3) { animation-delay: 6s; }
 
-<div align="center">
-  <img src="/public/image/MarketPulse4.png" alt="Dashboard Preview 3" width="70%" style="border-radius: 8px; border: 1px solid #1e293b;" />
+  @keyframes fade {
+    0%   { opacity: 0; }
+    10%  { opacity: 1; }
+    30%  { opacity: 1; }
+    40%  { opacity: 0; }
+    100% { opacity: 0; }
+  }
+</style>
+
+<div class="slideshow">
+  <img src="./public/image/MarketPulse2.png" alt="Dashboard Preview 1" />
+  <img src="./public/image/MarketPulse3.png" alt="Dashboard Preview 2" />
+  <img src="./public/image/MarketPulse4.png" alt="Dashboard Preview 3" />
 </div>
 
 ---

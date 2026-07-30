@@ -99,7 +99,7 @@ export default function Footer() {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
           <p>© {new Date().getFullYear()} MarketPulse. All rights reserved.</p>
           <p className="flex items-center gap-1">
-            Connecting passionate sellers with  <Heart className="w-3.5 h-3.5 text-red-500 fill-red-500" /> everyday buyers, with a touch of care.
+            Connecting passionate sellers with everyday buyers, with a touch of care.
           </p>
         </div>
 

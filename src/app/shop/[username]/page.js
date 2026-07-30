@@ -15,7 +15,7 @@ export default function SellerShopPage() {
   const [loading, setLoading] = useState(true);
   const [cart, setCart] = useState([]);
 
-  // ১. লোকাল স্টোরেজ থেকে কার্ট লোড করা এবং শপ ও প্রোডাক্ট ডেটা ফেচ করা
+  
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem('store_cart')) || [];
     setCart(savedCart);
@@ -45,7 +45,7 @@ export default function SellerShopPage() {
     fetchSellerData();
   }, [username]);
 
-  // ২. Add to Cart ফাংশন (লোকাল স্টোরেজ সিঙ্কসহ)
+  
   const addToCart = (product) => {
     const existingIndex = cart.findIndex((item) => item._id === product._id);
     let updatedCart;
@@ -69,14 +69,14 @@ export default function SellerShopPage() {
   const totalPrice = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
   const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
 
-  // শপের নাম সুন্দরভাবে দেখানোর জন্য লজিক (shopName থাকলে তা দেখাবে, না থাকলে username এর সাথে Store যোগ করবে)
+  
   const shopTitle = sellerInfo?.shopName || sellerInfo?.name || `${username}'s Store`;
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">
       <Toaster position="top-right" />
 
-      {/* Hero Banner Area */}
+     
       <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-12">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 bg-slate-900/80 border border-slate-800/80 p-6 sm:p-8 rounded-3xl backdrop-blur-xl shadow-2xl">
           <div className="space-y-3">
@@ -101,7 +101,7 @@ export default function SellerShopPage() {
             </p>
           </div>
 
-          {/* Cart Badge & Checkout Trigger */}
+        
           <div className="flex items-center gap-4 bg-slate-950 border border-slate-800 px-5 py-3 rounded-2xl">
             <Link href="/cart" className="relative flex items-center gap-2">
               <ShoppingCart className="w-6 h-6 text-blue-400" />
@@ -125,7 +125,7 @@ export default function SellerShopPage() {
         </div>
       </div>
 
-      {/* Products Grid */}
+      
       <main className="max-w-7xl mx-auto px-4 sm:px-8 py-12 space-y-8">
         <div className="flex items-center justify-between">
           <h2 className="text-xl sm:text-2xl font-bold text-slate-200">Store Products</h2>
