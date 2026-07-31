@@ -333,7 +333,10 @@ export default function Navbar() {
               Home
             </Link>
             <Link href="/shops" className="hover:text-blue-400 transition-colors">
-              Explore Shops
+             Explore Shops
+            </Link>
+            <Link href="/about" className="hover:text-blue-400 transition-colors">
+              About 
             </Link>
             {user?.role === 'seller' && (
               <Link href="/dashboard/seller" className="hover:text-blue-400 transition-colors flex items-center gap-1.5">
@@ -505,6 +508,11 @@ export default function Navbar() {
           >
             Explore Shops
           </Link>
+
+          <Link href="/about" 
+          onClick={() => setIsOpen(false)} className="block px-4 py-3 rounded-xl hover:bg-slate-900 text-slate-300 hover:text-white font-medium transition-colors">
+            About 
+          </Link>
           
           {user?.role === 'seller' && (
             <Link 
@@ -538,7 +546,7 @@ export default function Navbar() {
                   onClick={() => setIsOpen(false)}
                   className="w-full text-center py-3 rounded-xl font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-500/20"
                 >
-                  Become a Seller
+                  Register Now
                 </Link>
               </>
             )}

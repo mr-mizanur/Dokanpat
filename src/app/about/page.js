@@ -14,7 +14,7 @@ export default function AboutPage() {
             <Sparkles className="w-3.5 h-3.5" />
             <span>About MarketPulse</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-slate-100 flex items-center justify-center gap-3">
+          <h1 className="text-2xl sm:text-5xl font-black tracking-tight text-slate-100 flex items-center justify-center gap-3">
             <span>Welcome to</span> <Logo />
           </h1>
           <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
@@ -46,7 +46,7 @@ export default function AboutPage() {
             </div>
             <h3 className="text-xl font-bold text-slate-100">Why Choose Us?</h3>
             <p className="text-sm text-slate-400 leading-relaxed">
-              আমরা শতভাগ নিরাপদ পেমেন্ট গেটওয়ে, রিয়েল-টাইম কার্ট ম্যানেজমেন্ট, ভেরিফাইড সেলার এবং সুপার-ফাস্ট চেকআউট সিস্টেম নিশ্চিত করি যাতে আপনার প্রতিটি শপিং অভিজ্ঞতা হয় চমৎকার।
+              আমরা শতভাগ নিরাপদ, রিয়েল-টাইম কার্ট ম্যানেজমেন্ট, ভেরিফাইড সেলার এবং সুপার-ফাস্ট চেকআউট সিস্টেম নিশ্চিত করি যাতে আপনার প্রতিটি শপিং অভিজ্ঞতা হয় চমৎকার।
             </p>
           </div>
         </div>
@@ -80,7 +80,7 @@ export default function AboutPage() {
         <div className="text-center bg-gradient-to-r from-blue-900/40 via-indigo-900/40 to-slate-900/80 border border-blue-500/20 p-10 rounded-3xl backdrop-blur-xl space-y-6">
           <h2 className="text-2xl sm:text-3xl font-black text-slate-100">Ready to Explore Our Store?</h2>
           <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto">
-            আজই আমাদের কালেকশন ব্রাউজ করুন এবং আপনার প্রয়োজনীয় সেরা পণ্যটি সংগ্রহ করুন।
+            আজই কালেকশন ব্রাউজ করুন এবং আপনার প্রয়োজনীয় সেরা পণ্যটি সংগ্রহ করুন।
           </p>
           <div className="flex justify-center gap-4">
             <Link 
