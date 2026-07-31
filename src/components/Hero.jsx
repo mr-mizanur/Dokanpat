@@ -390,7 +390,7 @@ export default function Hero() {
                     <p className="text-xs text-slate-400 line-clamp-2">{product.description || 'No description provided.'}</p>
                     
                     <div className="flex items-center justify-between pt-3">
-                      <span className="text-lg font-black text-blue-400">${Number(product.price).toFixed(2)}</span>
+                      <span className="text-lg font-black text-blue-400"> ৳{Number(product.price).toFixed(2)}</span>
                       <span className="text-xs text-slate-500">Stock: {product.stock}</span>
                     </div>
                   </div>

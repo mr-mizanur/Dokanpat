@@ -8,7 +8,7 @@ import toast, { Toaster } from 'react-hot-toast';
 export default function CartPage() {
   const [cart, setCart] = useState([]);
 
-  // ১. পেজ লোড হওয়ার পর লোকাল স্টোরেজ থেকে কার্ট ডাটা লোড করা
+ 
   useEffect(() => {
     const savedCart = localStorage.getItem('store_cart');
     if (savedCart) {
@@ -20,13 +20,13 @@ export default function CartPage() {
     }
   }, []);
 
-  // ২. কার্ট আপডেট হলে লোকাল স্টোরেজে সেভ করা
+ 
   const updateCartStorage = (updatedCart) => {
     setCart(updatedCart);
     localStorage.setItem('store_cart', JSON.stringify(updatedCart));
   };
 
-  // ৩. প্রোডাক্টের কোয়ান্টিটি বাড়ানো বা কমানো
+ 
   const handleQuantityChange = (productId, delta) => {
     const updatedCart = cart.map((item) => {
       if (item._id === productId) {
@@ -39,7 +39,7 @@ export default function CartPage() {
     updateCartStorage(updatedCart);
   };
 
-  // ৪. কার্ট থেকে নির্দিষ্ট প্রোডাক্ট রিমুভ করা
+  
   const handleRemoveItem = (productId) => {
     const updatedCart = cart.filter((item) => item._id !== productId);
     updateCartStorage(updatedCart);
@@ -48,9 +48,9 @@ export default function CartPage() {
     });
   };
 
-  // মোট দাম হিসাব করা
+ 
   const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
-  const shipping = cart.length > 0 ? 10.00 : 0; // ফিক্সড শিপিং চার্জ
+  const shipping = cart.length > 0 ? 10.00 : 0; 
   const total = subtotal + (cart.length > 0 ? shipping : 0);
 
   return (
@@ -59,7 +59,7 @@ export default function CartPage() {
 
       <div className="max-w-5xl mx-auto space-y-6">
         
-        {/* Header */}
+        
         <div className="flex items-center justify-between bg-slate-900/80 border border-slate-800/80 p-6 rounded-2xl backdrop-blur-xl shadow-xl">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center text-blue-400">
@@ -77,7 +77,7 @@ export default function CartPage() {
           </Link>
         </div>
 
-        {/* Cart Contents */}
+       
         {cart.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 bg-slate-900/40 border border-slate-800/60 rounded-2xl text-center p-6 space-y-4">
             <div className="w-16 h-16 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-500">
@@ -93,8 +93,7 @@ export default function CartPage() {
           </div>
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            
-            {/* Items List */}
+          
             <div className="lg:col-span-2 space-y-4">
               {cart.map((item) => (
                 <div key={item._id} className="bg-slate-900/80 border border-slate-800/80 p-4 rounded-2xl backdrop-blur-xl shadow-xl flex items-center justify-between gap-4">
@@ -107,7 +106,7 @@ export default function CartPage() {
                     />
                     <div className="space-y-1">
                       <h3 className="font-bold text-slate-100 text-sm sm:text-base line-clamp-1">{item.name}</h3>
-                      <p className="text-xs text-blue-400 font-bold">${Number(item.price).toFixed(2)}</p>
+                      <p className="text-xs text-blue-400 font-bold">৳{Number(item.price).toFixed(2)}</p>
                       <span className="text-[10px] px-2 py-0.5 bg-slate-950 border border-slate-800 rounded-md text-slate-400 uppercase">
                         {item.category}
                       </span>
@@ -115,7 +114,7 @@ export default function CartPage() {
                   </div>
 
                   <div className="flex items-center gap-4">
-                    {/* Quantity Controls */}
+                  
                     <div className="flex items-center gap-2 bg-slate-950 border border-slate-800 p-1 rounded-xl">
                       <button 
                         onClick={() => handleQuantityChange(item._id, -1)}
@@ -132,7 +131,7 @@ export default function CartPage() {
                       </button>
                     </div>
 
-                    {/* Delete Item */}
+                   
                     <button 
                       onClick={() => handleRemoveItem(item._id)}
                       className="p-2 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 hover:bg-red-500/20 transition-all"
@@ -146,22 +145,22 @@ export default function CartPage() {
               ))}
             </div>
 
-            {/* Order Summary Sidebar */}
+            
             <div className="bg-slate-900/80 border border-slate-800/80 p-6 rounded-2xl backdrop-blur-xl shadow-xl space-y-4 h-fit">
               <h3 className="text-base font-bold text-slate-100 pb-3 border-b border-slate-800">Order Summary</h3>
               
               <div className="space-y-2 text-xs">
                 <div className="flex justify-between text-slate-400">
                   <span>Subtotal</span>
-                  <span className="text-slate-200 font-semibold">${subtotal.toFixed(2)}</span>
+                  <span className="text-slate-200 font-semibold">৳{subtotal.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-slate-400">
                   <span>Estimated Shipping</span>
-                  <span className="text-slate-200 font-semibold">${shipping.toFixed(2)}</span>
+                  <span className="text-slate-200 font-semibold">৳{shipping.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-slate-400 pt-2 border-t border-slate-800/80 text-sm">
                   <span className="font-bold text-slate-100">Total</span>
-                  <span className="font-black text-blue-400">${total.toFixed(2)}</span>
+                  <span className="font-black text-blue-400">৳{total.toFixed(2)}</span>
                 </div>
               </div>
 

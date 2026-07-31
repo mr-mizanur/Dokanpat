@@ -61,7 +61,7 @@ export default function SellerShopPage() {
     setCart(updatedCart);
     localStorage.setItem('store_cart', JSON.stringify(updatedCart));
 
-    toast.success(`${product.name} added to cart! 🛒`, {
+    toast.success(`${product.name} added to cart! `, {
       style: { background: '#090d16', color: '#fff', border: '1px solid #1e293b' },
     });
   };
@@ -166,7 +166,7 @@ export default function SellerShopPage() {
                     <p className="text-xs text-slate-400 line-clamp-2">{product.description || 'No description provided.'}</p>
                     
                     <div className="flex items-center justify-between pt-3">
-                      <span className="text-lg font-black text-blue-400">${Number(product.price).toFixed(2)}</span>
+                      <span className="text-lg font-black text-blue-400">৳{Number(product.price).toFixed(2)}</span>
                       <span className="text-xs text-slate-500">Stock: {product.stock}</span>
                     </div>
                   </div>
