@@ -7,58 +7,69 @@
 **MarketPulse** is a modern, high-performance multi-vendor e-commerce platform built with **Next.js**, **Tailwind CSS**, and **Node.js**.  
 It features a futuristic dark-mode UI with glassmorphism aesthetics, secure authentication, role-based dashboards, and complete order & product management systems.
 
-**Live  :** [https://market-pulse-eosin.vercel.app](https://market-pulse-eosin.vercel.app) <br>
-**Server:** [https://market-pulse-server-five.vercel.app/](https://market-pulse-server-five.vercel.app/)
+**Live Demo:** [https://market-pulse-eosin.vercel.app](https://market-pulse-eosin.vercel.app) <br>
+**Sitemap:** [https://market-pulse-eosin.vercel.app/sitemap.xml](https://market-pulse-eosin.vercel.app/sitemap.xml) <br>
+**API Server:** [https://market-pulse-server-five.vercel.app/](https://market-pulse-server-five.vercel.app/)
 
 ---
 
+## Featured Stores
 
-##  Features
-
--  **Multi-Vendor Marketplace** – Sellers can list & manage their own products
--  **Role-Based Access** – Admin, Seller, and Buyer dashboards
--  **Secure Authentication** – Powered by Better Auth + MongoDB
--  **Cart & Checkout** – Full shopping cart and order flow
--  **Order & Product Management** – Complete admin & seller controls
--  **Fully Responsive** – Looks great on mobile, tablet & desktop
--  **High Performance** – Built with Next.js App Router
+Explore some of the top vendor storefronts currently active on MarketPulse:
+- **Hello Shop:** [https://market-pulse-eosin.vercel.app/shop/helloshop_603](https://market-pulse-eosin.vercel.app/shop/helloshop_603)
+- **Tech Hub:** [https://market-pulse-eosin.vercel.app/shop/tack_hub_666](https://market-pulse-eosin.vercel.app/shop/tack_hub_666)
+- **Screen Care:** [https://market-pulse-eosin.vercel.app/shop/screen_care_916](https://market-pulse-eosin.vercel.app/shop/screen_care_916)
 
 ---
 
-## Tech Stack
+## Key Features
+
+- **Multi-Vendor Marketplace** – Empower independent sellers to launch, manage, and scale their custom storefronts.
+- **Role-Based Access** – Dedicated dashboards for Admin, Sellers, and Buyers.
+- **Secure Authentication** – Robust session handling and user verification powered by **Better Auth** & **MongoDB**.
+- **Interactive UI/UX** – Futuristic dark mode aesthetic enhanced with **Glassmorphism** and **Tailwind CSS**.
+- **Real-Time Feedback** – Integrated **React Hot Toast** notifications for seamless user actions.
+- **Beta Updates & Feedback** – Dedicated testing track with a built-in Web3Forms bug reporting system.
+- **Fully Responsive** – Optimized layout for mobile, tablet, and desktop viewports.
+- **High Performance** – Built on **Next.js App Router** for lightning-fast page transitions and optimal SEO.
+
+---
+
+##  Tech Stack
 
 | Category       | Technology                  |
 |----------------|-----------------------------|
-| Framework      | Next.js 16 (App Router)     |
-| Styling        | Tailwind CSS 4              |
+| Framework      | Next.js App Router          |
+| Styling        | Tailwind CSS                |
 | Authentication | Better Auth                 |
 | Database       | MongoDB                     |
 | UI Icons       | Lucide React                |
 | Notifications  | React Hot Toast             |
-| Language       | JavaScript / React 19       |
+| Form Handling  | Web3Forms API               |
+| Language       | JavaScript / React          |
 
 ---
 
 ## Getting Started
 
 ### Prerequisites
-- Node.js 18+
-- MongoDB (local or Atlas)
+Make sure you have the following installed on your machine:
+- **Node.js** (v18 or higher)
+- **MongoDB** (Local instance or MongoDB Atlas cluster)
 
-### Installation
+### Installation & Setup
 
 ```bash
-# Clone the repository
-git clone https://github.com/mr-mizanur/MarketPulse.git
+# 1. Clone the repository
+git clone [https://github.com/mr-mizanur/MarketPulse.git](https://github.com/mr-mizanur/MarketPulse.git)
 cd MarketPulse
 
-# Install dependencies
+# 2. Install dependencies
 npm install
 
-# Create .env.local and add your MongoDB URI + Auth secrets
-# Example:
+# 3. Create .env.local file in the root directory and configure environment variables:
 # MONGODB_URI=your_mongodb_connection_string
 # BETTER_AUTH_SECRET=your_secret_key
 
-# Run the development server
+# 4. Run the development server
 npm run dev
