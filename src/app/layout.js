@@ -2,9 +2,6 @@ import Navbar from '@/components/Navbar';
 import './globals.css';
 import Footer from '@/components/Footer';
 
-
-
-
 export const metadata = {
   title: {
     default: "MarketPulse - Modern E-Commerce & Online Marketplace",
@@ -30,6 +27,9 @@ export const metadata = {
   metadataBase: new URL('https://market-pulse-eosin.vercel.app/'), 
   alternates: {
     canonical: '/',
+  },
+  verification: {
+    google: 'chDhbXsqdq3gt6mJi7A_-jdAMjmDWra_vE4TOdIU46Q',
   },
   openGraph: {
     title: "MarketPulse - Modern E-Commerce & Online Marketplace",
@@ -66,13 +66,10 @@ export const metadata = {
   },
 };
 
-
-
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className="bg-slate-950 text-slate-100">
-       
+    <html lang="en" className="dark">
+      <body className="bg-slate-950 text-slate-100 antialiased">
         <Navbar />
         <main>{children}</main>
         <Footer />

@@ -379,7 +379,7 @@ export default function RegisterPage() {
           setLoading(true);
         },
         onSuccess: () => {
-          toast.success(`Successfully registered as ${formData.role.toUpperCase()}! 🎉`, {
+          toast.success(`Successfully registered as ${formData.role.toUpperCase()}! `, {
             style: {
               background: '#090d16',
               color: '#fff',

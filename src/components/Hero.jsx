@@ -479,7 +479,7 @@ export default function Hero() {
         if (res.ok) {
           const fetchedProducts = Array.isArray(data) ? data : data.products || data.data || [];
           
-          // 🔀 এখানে প্রোডাক্টগুলো ফেচ হওয়ার পর এলোমেলো (Shuffle) করা হচ্ছে
+          
           const shuffledProducts = [...fetchedProducts].sort(() => Math.random() - 0.5);
           
           setProducts(shuffledProducts);

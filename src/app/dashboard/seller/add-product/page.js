@@ -120,7 +120,7 @@ export default function AddProductPage() {
 
       <div className="max-w-2xl w-full space-y-6 bg-slate-900/80 border border-slate-800/80 p-8 rounded-2xl backdrop-blur-xl shadow-2xl">
         
-        {/* Top Header & Back Button */}
+       
         <div className="flex items-center justify-between pb-4 border-b border-slate-800/80">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center text-blue-400">
@@ -138,7 +138,7 @@ export default function AddProductPage() {
           </Link>
         </div>
 
-        {/* Product Form */}
+       
         <form onSubmit={handleSubmit} className="space-y-4">
           
           <div className="space-y-1.5">

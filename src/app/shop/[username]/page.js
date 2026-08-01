@@ -61,7 +61,7 @@ export default function SellerShopPage() {
     setCart(updatedCart);
     localStorage.setItem('store_cart', JSON.stringify(updatedCart));
 
-    toast.success(`${product.name} added to cart! `, {
+    toast.success(`${product.name} added to cart!`, {
       style: { background: '#090d16', color: '#fff', border: '1px solid #1e293b' },
     });
   };

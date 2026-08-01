@@ -3,7 +3,7 @@ export default function PrivacyPolicy() {
     <div className="min-h-screen bg-slate-950 text-slate-100 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto space-y-10">
         
-        {/* Header */}
+      
         <div className="space-y-3 border-b border-slate-900 pb-8">
           <h1 className="text-3xl sm:text-4xl font-black tracking-tight bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent">
             Privacy Policy
@@ -13,7 +13,7 @@ export default function PrivacyPolicy() {
           </p>
         </div>
 
-        {/* Content Sections */}
+       
         <div className="space-y-8 text-sm text-slate-300 leading-relaxed">
           
           <section className="space-y-3">
