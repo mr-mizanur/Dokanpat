@@ -542,7 +542,7 @@ export default function Hero() {
             </div>
             
             <div className="space-y-2">
-              <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-slate-100 flex items-center gap-3">
+              <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-slate-100 flex items-center gap-3 flex flex-col sm:flex-row">
                 <span>Welcome to</span> <Logo />
               </h2>
               <p className="text-xs sm:text-sm text-slate-400 max-w-xl">
