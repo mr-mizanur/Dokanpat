@@ -441,19 +441,19 @@ export default function Hero() {
   const adBanners = [
     {
       text: "মার্কেটপালসে স্বাগতম! সেরা বিক্রেতাদের প্রিমিয়াম পণ্য থেকে আজই আপনার পছন্দের কেনাকাটা করুন।",
-      image: "/image/MarketPulse.png"
+      image: "/image/MarketPulse.jpg"
     },
     {
       text: "সুপার ফাস্ট ও সিকিউর চেকআউট! পছন্দের জিনিস কার্টে যোগ করুন আর মুহূর্তেই অর্ডার কনফার্ম করুন।",
-      image: "/image/MarketPulse2.png"
+      image: "/image/MarketPulse2.jpg"
     },
     {
       text: "বিশ্বস্ত সেলারদের এক্সক্লুসিভ কালেকশন! সেরা মূল্যে সেরা কোয়ালিটি পণ্য শুধু MarketPulse-এ।",
-      image: "/image/MarketPulse3.png"
+      image: "/image/MarketPulse3.jpg"
     },
     {
       text: "হ্যান্ডপিকড প্রিমিয়াম কালেকশন ও ইনস্ট্যান্ট শপিং অভিজ্ঞতা উপভোগ করুন MarketPulse-এর সাথে।",
-      image: "/image/MarketPulse4.png"
+      image: "/image/MarketPulse4.jpg"
     }
   ];
 
