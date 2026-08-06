@@ -35,10 +35,10 @@ export default function ShopsPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
+    <div className="min-h-screen bg-[#7f8c8d] text-slate-100">
       <Toaster position="top-right" />
 
-      {/* Hero Banner Area */}
+   
       <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-12">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 bg-slate-900/80 border border-slate-800/80 p-6 sm:p-8 rounded-3xl backdrop-blur-xl shadow-2xl">
           <div className="space-y-3">
@@ -60,7 +60,7 @@ export default function ShopsPage() {
         </div>
       </div>
 
-      {/* Shops Grid */}
+     
       <main className="max-w-7xl mx-auto px-4 sm:px-8 py-12 space-y-8">
         <div className="flex items-center justify-between">
           <h2 className="text-xl sm:text-2xl font-bold text-slate-200">Active Shops</h2>

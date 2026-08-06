@@ -38,7 +38,7 @@ export const metadata = {
     siteName: 'MarketPulse',
     images: [
       {
-        url: '/image/MarketPulse.png',
+        url: '/image/MarketPulse.jpg',
         width: 1200,
         height: 630,
         alt: 'MarketPulse Marketplace',
@@ -51,7 +51,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: "MarketPulse - Modern E-Commerce & Online Marketplace",
     description: "Discover top-tier products from trusted sellers on MarketPulse.",
-    images: ['/image/MarketPulse.png'],
+    images: ['/image/MarketPulse.jpg'],
   },
   robots: {
     index: true,
@@ -69,7 +69,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark">
-      <body className="bg-slate-950 text-slate-100 antialiased">
+      <body className="bg-[#bdc3c7] text-slate-100 antialiased">
         <Navbar />
         <main>{children}</main>
         <Footer />

@@ -436,7 +436,7 @@ export default function Hero() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [cart, setCart] = useState([]);
-  const [searchQuery, setSearchQuery] = useState(''); // সার্চবারের জন্য স্টেট
+  const [searchQuery, setSearchQuery] = useState(''); 
 
   const adBanners = [
     {
@@ -529,7 +529,7 @@ export default function Hero() {
   const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
+    <div className="min-h-screen bg-[#7f8c8d] text-slate-100">
       <Toaster position="top-right" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-12">
@@ -537,8 +537,7 @@ export default function Hero() {
           
           <div className="lg:col-span-7 space-y-5">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-600/10 border border-blue-500/20 text-blue-400 text-xs font-semibold">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Explore MarketPulse</span>
+              <h2 className="text-lg font-bold">Happy Shopping!</h2>
             </div>
             
             <div className="space-y-2">
@@ -563,7 +562,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 relative h-60 sm:h-72 w-full rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950 shadow-2xl group">
+          <div className="lg:col-span-5 relative h-60 sm:h-72 w-full rounded-2xl overflow-hidden border border-slate-800/80 bg-[#7f8c8d] shadow-2xl group">
             {adBanners.map((banner, index) => (
               <div
                 key={index}

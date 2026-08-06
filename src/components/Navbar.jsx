@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation'; // 👈 ১. হুকটি এখানে ইম্পোর্ট করতে হবে
+import { usePathname } from 'next/navigation'; 
 import { Menu, X, ShoppingBag, Store, User, LogOut, ChevronDown } from 'lucide-react';
 import Logo from './Logo';
 import { authClient } from '@/lib/auth-client'; 
@@ -12,7 +12,7 @@ export default function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [totalItems, setTotalItems] = useState(0);
 
-  const pathname = usePathname(); // 👈 ২. এখানে পাথনেম ডিফাইন করা হয়েছে
+  const pathname = usePathname(); 
   const { data: session, isPending } = authClient.useSession();
   const user = session?.user;
 
@@ -50,7 +50,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-xl bg-slate-950/80 border-b border-slate-800/80 text-slate-100">
+    <header className="sticky top-0 z-50 backdrop-blur-xl bg-[#2d3436] border-b border-slate-800/80 text-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
         

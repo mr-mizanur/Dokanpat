@@ -73,7 +73,7 @@ export default function SellerShopPage() {
   const shopTitle = sellerInfo?.shopName || sellerInfo?.name || `${username}'s Store`;
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
+    <div className="min-h-screen bg-[#7f8c8d] text-slate-100">
       <Toaster position="top-right" />
 
      

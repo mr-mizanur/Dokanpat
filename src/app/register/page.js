@@ -419,7 +419,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#7f8c8d] text-slate-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <Toaster position="top-right" />
       
       <div className="max-w-md w-full space-y-6 bg-slate-900/80 border border-slate-800/80 p-8 rounded-2xl backdrop-blur-xl shadow-2xl">
