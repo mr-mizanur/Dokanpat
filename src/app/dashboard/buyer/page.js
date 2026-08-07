@@ -52,7 +52,7 @@ export default function BuyerDashboardPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8">
+    <div className="min-h-screen  bg-[#7f8c8d] text-slate-100 p-4 sm:p-8">
       <Toaster position="top-right" />
 
       <div className="max-w-6xl mx-auto space-y-6">

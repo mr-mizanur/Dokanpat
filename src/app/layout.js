@@ -4,12 +4,12 @@ import Footer from '@/components/Footer';
 
 export const metadata = {
   title: {
-    default: "MarketPulse - Modern E-Commerce & Online Marketplace",
-    template: "%s | MarketPulse"
+    default: "Dokanpat - Modern E-Commerce & Online Marketplace",
+    template: "%s | Dokanpat"
   },
-  description: "Discover top-tier products from trusted sellers on MarketPulse. Enjoy seamless shopping, secure checkout, and exclusive collections.",
+  description: "Discover top-tier products from trusted sellers on Dokanpat. Enjoy seamless shopping, secure checkout, and exclusive collections in Bangladesh.",
   keywords: [
-    "MarketPulse",
+    "Dokanpat",
     "online marketplace",
     "ecommerce store",
     "buy online",
@@ -21,27 +21,27 @@ export const metadata = {
     "trending products online",
     "best e-commerce platform"
   ],
-  authors: [{ name: "MarketPulse Team" }],
-  creator: "MarketPulse",
-  publisher: "MarketPulse",
-  metadataBase: new URL('https://market-pulse-eosin.vercel.app/'), 
+  authors: [{ name: "Dokanpat Team" }],
+  creator: "Dokanpat",
+  publisher: "Dokanpat",
+  metadataBase: new URL('https://dokanpat.vercel.app/'), 
   alternates: {
     canonical: '/',
   },
   verification: {
-    google: 'chDhbXsqdq3gt6mJi7A_-jdAMjmDWra_vE4TOdIU46Q',
+    google: 'chDhbXsqdq3gt6mJi7A_-jdAMjmDWra_vE4TOdIU46Q', 
   },
   openGraph: {
-    title: "MarketPulse - Modern E-Commerce & Online Marketplace",
-    description: "Discover top-tier products from trusted sellers on MarketPulse. Enjoy seamless shopping and secure checkout.",
-    url: 'https://market-pulse-eosin.vercel.app/',
-    siteName: 'MarketPulse',
+    title: "Dokanpat - Modern E-Commerce & Online Marketplace",
+    description: "Discover top-tier products from trusted sellers on Dokanpat. Enjoy seamless shopping and secure checkout.",
+    url: 'https://dokanpat.vercel.app/',
+    siteName: 'Dokanpat',
     images: [
       {
-        url: '/image/MarketPulse.jpg',
+        url: '/image/dokanpat.PNG', 
         width: 1200,
         height: 630,
-        alt: 'MarketPulse Marketplace',
+        alt: 'Dokanpat Marketplace',
       },
     ],
     locale: 'en_US',
@@ -49,9 +49,9 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "MarketPulse - Modern E-Commerce & Online Marketplace",
-    description: "Discover top-tier products from trusted sellers on MarketPulse.",
-    images: ['/image/MarketPulse.jpg'],
+    title: "Dokanpat - Modern E-Commerce & Online Marketplace",
+    description: "Discover top-tier products from trusted sellers on Dokanpat.",
+    images: ['/image/dokanpat.PNG'],
   },
   robots: {
     index: true,
