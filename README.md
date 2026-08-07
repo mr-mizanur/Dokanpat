@@ -1,14 +1,11 @@
-# MarketPulse – Multi-Vendor E-Commerce Platform
+# Dokanpat – Multi-Vendor E-Commerce Platform
 
-<p align="center">
-  <img src="https://market-pulse-eosin.vercel.app/image/MarketPulse.png" alt="MarketPulse Banner" width="100%" style="border-radius: 12px; border: 1px solid #1e293b;" />
-</p>
 
-**MarketPulse** is a modern, high-performance multi-vendor e-commerce platform built with **Next.js**, **Tailwind CSS**, and **Node.js**.  
+**Dokanpat** is a modern, high-performance multi-vendor e-commerce platform built with **Next.js**, **Tailwind CSS**, and **Node.js**.  
 It features a futuristic dark-mode UI with glassmorphism aesthetics, secure authentication, role-based dashboards, and complete order & product management systems.
 
-**Live Demo:** [https://market-pulse-eosin.vercel.app](https://market-pulse-eosin.vercel.app) <br>
-**Sitemap:** [https://market-pulse-eosin.vercel.app/sitemap.xml](https://market-pulse-eosin.vercel.app/sitemap.xml) <br>
+**Live Demo:** [https://dokanpat.vercel.app](https://dokanpat.vercel.app) <br>
+**Sitemap:** [https://dokanpat.vercel.app/sitemap.xml](https://dokanpat.vercel.app/sitemap.xml) <br>
 **API Server:** [https://market-pulse-server-five.vercel.app/](https://market-pulse-server-five.vercel.app/)
 
 ---
@@ -16,9 +13,9 @@ It features a futuristic dark-mode UI with glassmorphism aesthetics, secure auth
 ## Featured Stores
 
 Explore some of the top vendor storefronts currently active on MarketPulse:
-- **Hello Shop:** [https://market-pulse-eosin.vercel.app/shop/helloshop_603](https://market-pulse-eosin.vercel.app/shop/helloshop_603)
-- **Tech Hub:** [https://market-pulse-eosin.vercel.app/shop/tack_hub_666](https://market-pulse-eosin.vercel.app/shop/tack_hub_666)
-- **Screen Care:** [https://market-pulse-eosin.vercel.app/shop/screen_care_916](https://market-pulse-eosin.vercel.app/shop/screen_care_916)
+- **Hello Shop:** [https://dokanpat.vercel.app/shop/helloshop_603](https://dokanpat.vercel.app/shop/helloshop_603)
+- **Tech Hub:** [https://dokanpat.vercel.app/shop/tack_hub_666](https://dokanpat.vercel.app/shop/tack_hub_666)
+- **Screen Care:** [https://dokanpat.vercel.app/shop/screen_care_916](https://dokanpat.vercel.app/shop/screen_care_916)
 
 ---
 
@@ -61,8 +58,8 @@ Make sure you have the following installed on your machine:
 
 ```bash
 # 1. Clone the repository
-git clone [https://github.com/mr-mizanur/MarketPulse.git](https://github.com/mr-mizanur/MarketPulse.git)
-cd MarketPulse
+git clone [https://github.com/mr-mizanur/Dokanpat](https://github.com/mr-mizanur/Dokanpat)
+cd Dokanpat
 
 # 2. Install dependencies
 npm install

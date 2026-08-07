@@ -10,7 +10,7 @@ export default function HelpCenter() {
   const faqs = [
     {
       category: 'Seller',
-      question: 'How can I launch my own custom storefront on MarketPulse?',
+      question: 'How can I launch my own custom storefront on Dokanpat?',
       answer: 'To launch your store, click on "Become a Seller" in the navbar, register your account, and complete your shop details from the Seller Dashboard. You can start adding products immediately after setup.'
     },
     {
@@ -25,8 +25,8 @@ export default function HelpCenter() {
     },
     {
       category: 'General',
-      question: 'Is MarketPulse secure for online transactions?',
-      answer: 'Yes, MarketPulse utilizes advanced security protocols, backend-handled authentication, and encrypted databases to ensure all buyer and seller data remains completely safe.'
+      question: 'Is Dokanpat secure for online transactions?',
+      answer: 'Yes, Dokanpat utilizes advanced security protocols, backend-handled authentication, and encrypted databases to ensure all buyer and seller data remains completely safe.'
     }
   ];
 
@@ -50,7 +50,7 @@ export default function HelpCenter() {
             Help Center & FAQs
           </h1>
           <p className="text-sm text-slate-400 leading-relaxed">
-            Find answers to common questions about setting up your custom storefront, managing orders, or navigating MarketPulse.
+            Find answers to common questions about setting up your custom storefront, managing orders, or navigating Dokanpat.
           </p>
         </div>
 

@@ -1,5 +1,5 @@
 export default async function sitemap() {
-  const baseUrl = 'https://market-pulse-eosin.vercel.app/'; 
+  const baseUrl = 'https://dokanpat.vercel.app'; 
 
 
   const staticPages = [
