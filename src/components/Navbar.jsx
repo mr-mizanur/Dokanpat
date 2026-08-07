@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation'; 
-import { Menu, X, Store, User, LogOut, ChevronDown, ShoppingCart } from 'lucide-react';
+import { Menu, X, Store, ShoppingBag, ShieldAlert, LogOut, ChevronDown, ShoppingCart } from 'lucide-react';
 import Logo from './Logo';
 import { authClient } from '@/lib/auth-client'; 
 
@@ -78,13 +78,34 @@ export default function Navbar() {
               Explore Shops
             </Link>
 
-            {user?.role === 'seller' && (
+            {/* Role-based Nav Link with Icon (Only visible when logged in) */}
+            {user && user.role === 'seller' && (
               <Link 
                 href="/dashboard/seller" 
                 className={`transition-colors flex items-center gap-1.5 ${pathname?.startsWith('/dashboard/seller') ? 'text-blue-400 font-semibold' : 'text-slate-300 hover:text-blue-400'}`}
               >
                 <Store className={`w-4 h-4 ${pathname?.startsWith('/dashboard/seller') ? 'text-blue-400' : 'text-slate-400'}`} />
                 Seller Dashboard
+              </Link>
+            )}
+
+            {user && user.role === 'admin' && (
+              <Link 
+                href="/dashboard/admin" 
+                className={`transition-colors flex items-center gap-1.5 ${pathname?.startsWith('/dashboard/admin') ? 'text-blue-400 font-semibold' : 'text-slate-300 hover:text-blue-400'}`}
+              >
+                <ShieldAlert className={`w-4 h-4 ${pathname?.startsWith('/dashboard/admin') ? 'text-blue-400' : 'text-slate-400'}`} />
+                Admin Dashboard
+              </Link>
+            )}
+
+            {user && user.role !== 'seller' && user.role !== 'admin' && (
+              <Link 
+                href="/dashboard/buyer" 
+                className={`transition-colors flex items-center gap-1.5 ${pathname?.startsWith('/dashboard/buyer') ? 'text-blue-400 font-semibold' : 'text-slate-300 hover:text-blue-400'}`}
+              >
+                <ShoppingBag className={`w-4 h-4 ${pathname?.startsWith('/dashboard/buyer') ? 'text-blue-400' : 'text-slate-400'}`} />
+                My Orders
               </Link>
             )}
           </nav>
@@ -145,6 +166,15 @@ export default function Navbar() {
                           <Store className="w-4 h-4 text-blue-400" />
                           Seller Dashboard
                         </Link>
+                      ) : user.role === 'admin' ? (
+                        <Link 
+                          href="/dashboard/admin" 
+                          onClick={() => setIsDropdownOpen(false)}
+                          className="flex items-center gap-2 px-4 py-2 text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white"
+                        >
+                          <ShieldAlert className="w-4 h-4 text-blue-400" />
+                          Admin Dashboard
+                        </Link>
                       ) : (
                         <Link 
                           href="/dashboard/buyer" 
@@ -193,7 +223,7 @@ export default function Navbar() {
               href="/cart" 
               className="relative p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300"
             >
-              <ShoppingCart  className="w-5 h-5" />
+              <ShoppingCart className="w-5 h-5" />
               {totalItems > 0 && (
                 <span className="absolute -top-1 -right-1 bg-blue-600 text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center">
                   {totalItems}
@@ -249,13 +279,36 @@ export default function Navbar() {
             Explore Shops
           </Link>
           
-          {user?.role === 'seller' && (
+          {user && user.role === 'seller' && (
             <Link 
               href="/dashboard/seller" 
               onClick={() => setIsOpen(false)}
-              className={`block px-4 py-3 rounded-xl font-medium transition-colors ${pathname?.startsWith('/dashboard/seller') ? 'bg-slate-900 text-blue-400 font-semibold' : 'hover:bg-slate-900 text-slate-300'}`}
+              className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors ${pathname?.startsWith('/dashboard/seller') ? 'bg-slate-900 text-blue-400 font-semibold' : 'hover:bg-slate-900 text-slate-300'}`}
             >
+              <Store className="w-4 h-4 text-blue-400" />
               Seller Dashboard
+            </Link>
+          )}
+
+          {user && user.role === 'admin' && (
+            <Link 
+              href="/dashboard/admin" 
+              onClick={() => setIsOpen(false)}
+              className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors ${pathname?.startsWith('/dashboard/admin') ? 'bg-slate-900 text-blue-400 font-semibold' : 'hover:bg-slate-900 text-slate-300'}`}
+            >
+              <ShieldAlert className="w-4 h-4 text-blue-400" />
+              Admin Dashboard
+            </Link>
+          )}
+
+          {user && user.role !== 'seller' && user.role !== 'admin' && (
+            <Link 
+              href="/dashboard/buyer" 
+              onClick={() => setIsOpen(false)}
+              className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors ${pathname?.startsWith('/dashboard/buyer') ? 'bg-slate-900 text-blue-400 font-semibold' : 'hover:bg-slate-900 text-slate-300'}`}
+            >
+              <ShoppingBag className="w-4 h-4 text-blue-400" />
+              My Orders
             </Link>
           )}
 
