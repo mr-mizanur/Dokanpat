@@ -40,16 +40,13 @@ export default function HelpCenter() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 py-16 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#7f8c8d] text-slate-100 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto space-y-10">
         
-        {/* Header */}
+       
         <div className="space-y-3 border-b border-slate-900 pb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider">
-            <HelpCircle className="w-3.5 h-3.5" />
-            Support Center
-          </div>
-          <h1 className="text-3xl sm:text-4xl font-black tracking-tight bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent">
+         
+          <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-slate-900">
             Help Center & FAQs
           </h1>
           <p className="text-sm text-slate-400 leading-relaxed">
@@ -57,7 +54,7 @@ export default function HelpCenter() {
           </p>
         </div>
 
-        {/* Search Bar */}
+   
         <div className="relative">
           <input 
             type="text" 
@@ -68,7 +65,7 @@ export default function HelpCenter() {
           />
         </div>
 
-        {/* FAQ Accordion Section */}
+      
         <div className="space-y-4">
           <div className="space-y-3">
             {filteredFaqs.length > 0 ? (
@@ -106,10 +103,10 @@ export default function HelpCenter() {
           </div>
         </div>
 
-        {/* Still Need Help Box */}
+        
         <div className="pt-6 border-t border-slate-900 text-sm text-slate-400">
           <p>
-            Still need assistance? Reach out to our support team through our <a href="/contact" className="text-blue-400 hover:underline">Contact Page</a>.
+            Still need assistance? Reach out to our support team through our <a href="/contact" className="text-slate-900 hover:underline">Contact Page</a>.
           </p>
         </div>
 

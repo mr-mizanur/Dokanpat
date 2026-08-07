@@ -42,10 +42,7 @@ export default function ShopsPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-12">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 bg-slate-900/80 border border-slate-800/80 p-6 sm:p-8 rounded-3xl backdrop-blur-xl shadow-2xl">
           <div className="space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-600/10 border border-blue-500/20 text-blue-400 text-xs font-semibold">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>MarketPulse Directory</span>
-            </div>
+            
             
             <div className="space-y-2">
               <h1 className="text-2xl sm:text-4xl font-black tracking-tight text-slate-100 flex flex-wrap items-center gap-2.5">
@@ -106,7 +103,7 @@ export default function ShopsPage() {
                   <div className="p-4 border-t border-slate-800/80 bg-slate-950/40">
                     <Link 
                       href={`/shop/${shopUsername}`}
-                      className="w-full py-2.5 px-4 bg-slate-800 hover:bg-blue-600 text-slate-200 hover:text-white text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2"
+                      className="w-full py-2.5 px-4 bg-slate-900 hover:bg-slate-800 text-slate-200 hover:text-white text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2"
                     >
                       <span>Visit Store</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

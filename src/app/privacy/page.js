@@ -1,11 +1,11 @@
 export default function PrivacyPolicy() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 py-16 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#7f8c8d] text-slate-100 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto space-y-10">
         
       
         <div className="space-y-3 border-b border-slate-900 pb-8">
-          <h1 className="text-3xl sm:text-4xl font-black tracking-tight bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent">
+          <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-slate-900">
             Privacy Policy
           </h1>
           <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">
@@ -47,7 +47,7 @@ export default function PrivacyPolicy() {
           <section className="space-y-3">
             <h2 className="text-lg font-bold text-slate-200">5. Contact Us</h2>
             <p>
-              If you have any questions or concerns about this Privacy Policy or how your data is handled, please reach out to us through our <a href="/contact" className="text-blue-400 hover:underline">Contact Page</a>.
+              If you have any questions or concerns about this Privacy Policy or how your data is handled, please reach out to us through our <a href="/contact" className="text-slate-900 hover:underline">Contact Page</a>.
             </p>
           </section>
 

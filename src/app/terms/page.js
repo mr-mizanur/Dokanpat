@@ -1,63 +1,110 @@
-export default function TermsOfService() {
+'use client';
+
+import { useState } from 'react';
+import { ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
+
+export default function HelpCenter() {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const faqs = [
+    {
+      category: 'Seller',
+      question: 'How can I launch my own custom storefront on Dokanpat?',
+      answer: 'To launch your store, click on "Become a Seller" in the navbar, register your account, and complete your shop details from the Seller Dashboard. You can start adding products immediately after setup.'
+    },
+    {
+      category: 'Seller',
+      question: 'How do I manage my products and track orders?',
+      answer: 'You have full control through the Seller Dashboard. Navigate to the Products section to add or update items, and check the Orders section to monitor pending and delivered customer purchases in real-time.'
+    },
+    {
+      category: 'Buyer',
+      question: 'How can I explore different independent shops?',
+      answer: 'You can browse all available independent storefronts by clicking on the "Explore Shops" link in the top navigation bar to view unique shops and their products.'
+    },
+    {
+      category: 'General',
+      question: 'Is MarketPulse secure for online transactions?',
+      answer: 'Yes, MarketPulse utilizes advanced security protocols, backend-handled authentication, and encrypted databases to ensure all buyer and seller data remains completely safe.'
+    }
+  ];
+
+  const filteredFaqs = faqs.filter(faq => 
+    faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    faq.answer.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const toggleAccordion = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 py-16 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#7f8c8d] text-slate-100 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto space-y-10">
-        
-        {/* Header */}
+       
         <div className="space-y-3 border-b border-slate-900 pb-8">
-          <h1 className="text-3xl sm:text-4xl font-black tracking-tight bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent">
-            Terms of Service
+          
+          <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-slate-900" >
+            Help Center & FAQs
           </h1>
-          <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">
-            Last Updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+          <p className="text-sm text-slate-900">
+            Find answers to common questions about setting up your custom storefront, managing orders, or navigating MarketPulse.
           </p>
         </div>
 
-        {/* Content Sections */}
-        <div className="space-y-8 text-sm text-slate-300 leading-relaxed">
-          
-          <section className="space-y-3">
-            <h2 className="text-lg font-bold text-slate-200">1. Acceptance of Terms</h2>
-            <p>
-              Welcome to MarketPulse. By accessing or using our multi-vendor SaaS platform, launching a storefront, or purchasing products, you agree to be bound by these Terms of Service. If you do not agree to all of these terms, please do not use our platform.
-            </p>
-          </section>
+       
+        <div className="relative">
+          <input 
+            type="text" 
+            placeholder="Search for answers..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full px-4 py-3 bg-slate-900 border border-slate-800 rounded-xl text-sm text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-blue-500 transition-all"
+          />
+        </div>
 
-          <section className="space-y-3">
-            <h2 className="text-lg font-bold text-slate-200">2. Seller Accounts & Responsibilities</h2>
-            <p>
-              Independent sellers on MarketPulse are solely responsible for the operation of their custom storefronts, accurate product descriptions, pricing, inventory management, and timely fulfillment of customer orders. Sellers must ensure that all items listed comply with local laws and do not infringe on intellectual property rights.
-            </p>
-          </section>
+        <div className="space-y-4">
+          <div className="space-y-3">
+            {filteredFaqs.length > 0 ? (
+              filteredFaqs.map((faq, index) => (
+                <div 
+                  key={index}
+                  className="rounded-xl bg-slate-900/60 border border-slate-800/80 overflow-hidden transition-all"
+                >
+                  <button
+                    onClick={() => toggleAccordion(index)}
+                    className="w-full px-6 py-4 text-left flex items-center justify-between font-semibold text-sm text-slate-200 hover:text-blue-400 transition-colors"
+                  >
+                    <span className="flex items-center gap-3">
+                      <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-slate-800 text-blue-400 font-bold border border-slate-700">
+                        {faq.category}
+                      </span>
+                      {faq.question}
+                    </span>
+                    {openIndex === index ? (
+                      <ChevronUp className="w-4 h-4 text-slate-400 flex-shrink-0" />
+                    ) : (
+                      <ChevronDown className="w-4 h-4 text-slate-400 flex-shrink-0" />
+                    )}
+                  </button>
+                  {openIndex === index && (
+                    <div className="px-6 pb-4 pt-1 text-sm text-slate-400 leading-relaxed border-t border-slate-800/50">
+                      {faq.answer}
+                    </div>
+                  )}
+                </div>
+              ))
+            ) : (
+              <p className="text-center text-slate-500 py-8 text-sm">No matching questions found.</p>
+            )}
+          </div>
+        </div>
 
-          <section className="space-y-3">
-            <h2 className="text-lg font-bold text-slate-200">3. Buyer Guidelines & Transactions</h2>
-            <p>
-              Buyers using MarketPulse to discover and purchase from independent shops agree to provide accurate billing and shipping information. All financial transactions processed through the platform are secured using advanced encryption and backend-validated protocols.
-            </p>
-          </section>
-
-          <section className="space-y-3">
-            <h2 className="text-lg font-bold text-slate-200">4. Intellectual Property</h2>
-            <p>
-              The MarketPulse platform, including its original design, source code, logos, and features, is protected under intellectual property laws. Sellers retain ownership of their unique shop branding and product listings but grant MarketPulse a license to display them within the SaaS ecosystem.
-            </p>
-          </section>
-
-          <section className="space-y-3">
-            <h2 className="text-lg font-bold text-slate-200">5. Limitation of Liability</h2>
-            <p>
-              MarketPulse acts as a SaaS infrastructure provider connecting sellers and buyers. We are not directly liable for disputes arising between individual sellers and buyers, though we reserve the right to mediate or suspend accounts that violate platform safety rules.
-            </p>
-          </section>
-
-          <section className="space-y-3">
-            <h2 className="text-lg font-bold text-slate-200">6. Contact Information</h2>
-            <p>
-              If you have any questions regarding these Terms of Service, please reach out to our support team through our <a href="/contact" className="text-blue-400 hover:underline">Contact Page</a>.
-            </p>
-          </section>
-
+        <div className="pt-6 border-t border-slate-900 text-sm text-slate-900">
+          <p>
+            Still need assistance? Reach out to our support team through our <a href="/contact" className="text-slate-900 hover:underline">Contact Page</a>.
+          </p>
         </div>
 
       </div>

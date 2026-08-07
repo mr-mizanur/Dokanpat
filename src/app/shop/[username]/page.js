@@ -175,7 +175,7 @@ export default function SellerShopPage() {
                 <div className="p-4 border-t border-slate-800/80 bg-slate-950/40">
                   <button 
                     onClick={() => addToCart(product)}
-                    className="w-full py-2.5 px-4 bg-slate-800 hover:bg-blue-600 text-slate-200 hover:text-white text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2"
+                    className="w-full py-2.5 px-4 bg-slate-900 hover:bg-slate-800 text-slate-200 hover:text-white text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2"
                   >
                     <ShoppingCart className="w-4 h-4" />
                     <span>Add to Cart</span>

@@ -15,20 +15,48 @@ export default function Hero() {
   const adBanners = [
     {
       text: "দোকানপাট-এ স্বাগতম! সেরা বিক্রেতাদের প্রিমিয়াম পণ্য থেকে আজই আপনার পছন্দের কেনাকাটা করুন।",
-      image: "/image/MarketPulse.jpg"
+      image: "/image/dokanpat.PNG"
     },
     {
       text: "সুপার ফাস্ট ও সিকিউর চেকআউট! পছন্দের জিনিস কার্টে যোগ করুন আর মুহূর্তেই অর্ডার কনফার্ম করুন।",
-      image: "/image/MarketPulse2.jpg"
+      image: "/image/dokanpat1.PNG"
     },
     {
       text: "বিশ্বস্ত সেলারদের এক্সক্লুসিভ কালেকশন! সেরা মূল্যে সেরা কোয়ালিটি পণ্য শুধু দোকানপাট-এ।",
-      image: "/image/MarketPulse3.jpg"
+      image: "/image/dokanpat2.PNG"
     },
     {
       text: "হ্যান্ডপিকড প্রিমিয়াম কালেকশন ও ইনস্ট্যান্ট শপিং অভিজ্ঞতা উপভোগ করুন দোকানপাট-এর সাথে।",
-      image: "/image/MarketPulse4.jpg"
-    }
+      image: "/image/dokanpat3.PNG"
+    },
+    {
+      text: "ঘরে বসেই শত শত লোকাল ও ব্র্যান্ডেড শপ থেকে আপনার প্রয়োজনীয় পণ্য অর্ডার করুন দোকানপাট-এ।",
+      image: "/image/dokanpat4.PNG"
+    },
+    {
+      text: "নিরাপদ ও সহজ পেমেন্ট গেটওয়ে! ক্যাশ অন ডেলিভারি কিংবা অনলাইন পেমেন্টে কেনাকাটা করুন নির্দ্বিধায়।",
+      image: "/image/dokanpat5.PNG"
+    },
+    {
+      text: "প্রতিদিনের সেরা ডিসকাউন্ট ও অফার! বাজেট ফ্রেন্ডলি মূল্যে আপনার পছন্দের গ্যাজেট ও ফ্যাশন আইটেম কিনুন।",
+      image: "/image/dokanpat6.PNG"
+    },
+    {
+      text: "দেশজুড়ে দ্রুততম হোম ডেলিভারি সার্ভিস! আপনার অর্ডারকৃত পণ্য পৌঁছে যাবে একদম নিরাপদে আপনার দোরগোড়ায়।",
+      image: "/image/dokanpat7.PNG"
+    },
+    {
+      text: "যাচাইকৃত ও বিশ্বস্ত ভেন্ডরদের আসল পণ্যের নিশ্চয়তা। নকল বা লো-কোয়ালিটি পণ্যের কোনো সুযোগ নেই এখানে।",
+      image: "/image/dokanpat8.PNG"
+    },
+    {
+      text: "আপনার নিজস্ব দোকান বা অনলাইন শপ খুলুন দোকানপাট-এ খুব সহজেই এবং পৌঁছে যান লক্ষাধিক ক্রেতার কাছে।",
+      image: "/image/dokanpat9.PNG"
+    },
+    {
+      text: "২৪/৭ ডেডিকেটেড কাস্টমার সাপোর্ট! যেকোনো প্রশ্ন বা সহায়তায় আমরা সবসময় আছি আপনার পাশে।",
+      image: "/image/dokanpat10.PNG"
+    },
   ];
 
   const [currentAdIndex, setCurrentAdIndex] = useState(0);
@@ -106,9 +134,7 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 bg-slate-900/80 border border-slate-600/50 p-6 sm:p-10 rounded-3xl backdrop-blur-xl shadow-2xl items-center">
           
           <div className="lg:col-span-7 space-y-5">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-950 border border-slate-700/60 text-slate-100 text-xs font-semibold">
-              <span className="text-sm font-bold">Happy Shopping!</span>
-            </div>
+            
             
             <div className="space-y-2">
               <h1 className="text-2xl sm:text-4xl font-black tracking-tight text-slate-100 flex flex-col sm:flex-row gap-3 items-start sm:items-center">
