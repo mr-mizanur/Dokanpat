@@ -77,40 +77,10 @@ export default function Navbar() {
             >
               Explore Shops
             </Link>
-
-            {/* Role-based Nav Link with Icon (Only visible when logged in) */}
-            {user && user.role === 'seller' && (
-              <Link 
-                href="/dashboard/seller" 
-                className={`transition-colors flex items-center gap-1.5 ${pathname?.startsWith('/dashboard/seller') ? 'text-blue-400 font-semibold' : 'text-slate-300 hover:text-blue-400'}`}
-              >
-                <Store className={`w-4 h-4 ${pathname?.startsWith('/dashboard/seller') ? 'text-blue-400' : 'text-slate-400'}`} />
-                Seller Dashboard
-              </Link>
-            )}
-
-            {user && user.role === 'admin' && (
-              <Link 
-                href="/dashboard/admin" 
-                className={`transition-colors flex items-center gap-1.5 ${pathname?.startsWith('/dashboard/admin') ? 'text-blue-400 font-semibold' : 'text-slate-300 hover:text-blue-400'}`}
-              >
-                <ShieldAlert className={`w-4 h-4 ${pathname?.startsWith('/dashboard/admin') ? 'text-blue-400' : 'text-slate-400'}`} />
-                Admin Dashboard
-              </Link>
-            )}
-
-            {user && user.role !== 'seller' && user.role !== 'admin' && (
-              <Link 
-                href="/dashboard/buyer" 
-                className={`transition-colors flex items-center gap-1.5 ${pathname?.startsWith('/dashboard/buyer') ? 'text-blue-400 font-semibold' : 'text-slate-300 hover:text-blue-400'}`}
-              >
-                <ShoppingBag className={`w-4 h-4 ${pathname?.startsWith('/dashboard/buyer') ? 'text-blue-400' : 'text-slate-400'}`} />
-                My Orders
-              </Link>
-            )}
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
+            {/* Cart Icon */}
             <Link 
               href="/cart" 
               className="relative p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all text-slate-300 hover:text-white"
@@ -123,6 +93,44 @@ export default function Navbar() {
                 </span>
               )}
             </Link>
+
+            {/* Direct Role-based Dashboard/Orders Icon Button near Cart (Only when logged in) */}
+            {user && (
+              <>
+                {user.role === 'seller' && (
+                  <Link 
+                    href="/dashboard/seller" 
+                    className={`p-2.5 rounded-xl bg-slate-900 border transition-all ${pathname?.startsWith('/dashboard/seller') ? 'border-blue-500 text-blue-400 shadow-md shadow-blue-500/20' : 'border-slate-800 text-slate-300 hover:border-slate-700 hover:text-white'}`}
+                    title="Seller Dashboard"
+                    aria-label="Seller Dashboard"
+                  >
+                    <Store className="w-5 h-5" />
+                  </Link>
+                )}
+
+                {user.role === 'admin' && (
+                  <Link 
+                    href="/dashboard/admin" 
+                    className={`p-2.5 rounded-xl bg-slate-900 border transition-all ${pathname?.startsWith('/dashboard/admin') ? 'border-blue-500 text-blue-400 shadow-md shadow-blue-500/20' : 'border-slate-800 text-slate-300 hover:border-slate-700 hover:text-white'}`}
+                    title="Admin Dashboard"
+                    aria-label="Admin Dashboard"
+                  >
+                    <ShieldAlert className="w-5 h-5" />
+                  </Link>
+                )}
+
+                {user.role !== 'seller' && user.role !== 'admin' && (
+                  <Link 
+                    href="/dashboard/buyer" 
+                    className={`p-2.5 rounded-xl bg-slate-900 border transition-all ${pathname?.startsWith('/dashboard/buyer') ? 'border-blue-500 text-blue-400 shadow-md shadow-blue-500/20' : 'border-slate-800 text-slate-300 hover:border-slate-700 hover:text-white'}`}
+                    title="My Orders"
+                    aria-label="My Orders"
+                  >
+                    <ShoppingBag className="w-5 h-5" />
+                  </Link>
+                )}
+              </>
+            )}
 
             {isPending ? (
               <div className="w-24 h-9 bg-slate-900 animate-pulse rounded-xl border border-slate-800"></div>
@@ -230,6 +238,39 @@ export default function Navbar() {
                 </span>
               )}
             </Link>
+
+            {/* Mobile Direct Role Icon */}
+            {user && (
+              <>
+                {user.role === 'seller' && (
+                  <Link 
+                    href="/dashboard/seller" 
+                    className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300"
+                    aria-label="Seller Dashboard"
+                  >
+                    <Store className="w-5 h-5" />
+                  </Link>
+                )}
+                {user.role === 'admin' && (
+                  <Link 
+                    href="/dashboard/admin" 
+                    className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300"
+                    aria-label="Admin Dashboard"
+                  >
+                    <ShieldAlert className="w-5 h-5" />
+                  </Link>
+                )}
+                {user.role !== 'seller' && user.role !== 'admin' && (
+                  <Link 
+                    href="/dashboard/buyer" 
+                    className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300"
+                    aria-label="My Orders"
+                  >
+                    <ShoppingBag className="w-5 h-5" />
+                  </Link>
+                )}
+              </>
+            )}
             
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -278,39 +319,6 @@ export default function Navbar() {
           >
             Explore Shops
           </Link>
-          
-          {user && user.role === 'seller' && (
-            <Link 
-              href="/dashboard/seller" 
-              onClick={() => setIsOpen(false)}
-              className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors ${pathname?.startsWith('/dashboard/seller') ? 'bg-slate-900 text-blue-400 font-semibold' : 'hover:bg-slate-900 text-slate-300'}`}
-            >
-              <Store className="w-4 h-4 text-blue-400" />
-              Seller Dashboard
-            </Link>
-          )}
-
-          {user && user.role === 'admin' && (
-            <Link 
-              href="/dashboard/admin" 
-              onClick={() => setIsOpen(false)}
-              className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors ${pathname?.startsWith('/dashboard/admin') ? 'bg-slate-900 text-blue-400 font-semibold' : 'hover:bg-slate-900 text-slate-300'}`}
-            >
-              <ShieldAlert className="w-4 h-4 text-blue-400" />
-              Admin Dashboard
-            </Link>
-          )}
-
-          {user && user.role !== 'seller' && user.role !== 'admin' && (
-            <Link 
-              href="/dashboard/buyer" 
-              onClick={() => setIsOpen(false)}
-              className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors ${pathname?.startsWith('/dashboard/buyer') ? 'bg-slate-900 text-blue-400 font-semibold' : 'hover:bg-slate-900 text-slate-300'}`}
-            >
-              <ShoppingBag className="w-4 h-4 text-blue-400" />
-              My Orders
-            </Link>
-          )}
 
           <div className="pt-4 border-t border-slate-900 flex flex-col gap-2">
             {user ? (
