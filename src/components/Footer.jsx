@@ -138,7 +138,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-100 gap-4">
-          <p>© {new Date().getFullYear()} MarketPulse. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} দোকানপাট || Dokanpat. All rights reserved.</p>
           <p className="flex items-center gap-1">
             Connecting passionate sellers with everyday buyers, with a touch of care.
           </p>
