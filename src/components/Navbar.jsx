@@ -62,9 +62,7 @@ export default function Navbar() {
               <Logo/>
             </Link>
           </div>
-
           
-          {/* ডেক্সটপ নেভিগেশন */}
           <nav className="hidden md:flex items-center space-x-8 font-medium text-sm">
             <Link 
               href="/" 
@@ -79,20 +77,6 @@ export default function Navbar() {
             >
               Explore Shops
             </Link>
-            
-            <Link 
-              href="/about" 
-              className={`transition-colors ${pathname === '/about' ? 'text-blue-400 font-semibold' : 'text-slate-300 hover:text-blue-400'}`}
-            >
-              About 
-            </Link>
-
-            <Link 
-              href="/updates" 
-              className={`transition-colors ${pathname === '/updates' ? 'text-blue-400 font-semibold' : 'text-slate-300 hover:text-blue-400'}`}
-            >
-              Updates
-            </Link>
 
             {user?.role === 'seller' && (
               <Link 
@@ -105,7 +89,6 @@ export default function Navbar() {
             )}
           </nav>
 
-        
           <div className="hidden md:flex items-center space-x-4">
             <Link 
               href="/cart" 
@@ -204,7 +187,6 @@ export default function Navbar() {
               </>
             )}
           </div>
-
          
           <div className="md:hidden flex items-center gap-3">
             <Link 
@@ -230,10 +212,9 @@ export default function Navbar() {
 
         </div>
       </div>
-
      
       {isOpen && (
-        <div className="md:hidden border-b border-slate-800 bg-slate-950/95 backdrop-blur-2xl px-4 pt-4 pb-6 space-y-3 animate-fadeIn">
+        <div className="md:hidden border-b border-slate-800 bg-[#2d3436]/95 backdrop-blur-2xl px-4 pt-4 pb-6 space-y-3 animate-fadeIn">
           
           {user && (
             <div className="flex items-center gap-3 p-3 bg-slate-900/80 border border-slate-800 rounded-xl mb-4">
@@ -266,13 +247,6 @@ export default function Navbar() {
             className={`block px-4 py-3 rounded-xl font-medium transition-colors ${pathname === '/shops' ? 'bg-slate-900 text-blue-400 font-semibold' : 'hover:bg-slate-900 text-slate-300'}`}
           >
             Explore Shops
-          </Link>
-          <Link 
-            href="/about" 
-            onClick={() => setIsOpen(false)}
-            className={`block px-4 py-3 rounded-xl font-medium transition-colors ${pathname === '/about' ? 'bg-slate-900 text-blue-400 font-semibold' : 'hover:bg-slate-900 text-slate-300'}`}
-          >
-            About 
           </Link>
           
           {user?.role === 'seller' && (

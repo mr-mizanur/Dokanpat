@@ -1,10 +1,14 @@
-import { Store } from 'lucide-react';
-
 export default function Logo() {
   return (
-    <div className="text-2xl font-black tracking-wider bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent flex items-center gap-2 group cursor-pointer">
-      <Store className="w-7 h-7 text-blue-400 transition-transform group-hover:scale-110" />
-      MarketPulse
+    <div className="flex items-center gap-2.5 group cursor-pointer">
+      <div className="flex flex-col">
+        <span className="text-xl font-black tracking-wider text-slate-100 leading-tight">
+          Dokanpat
+        </span>
+        <span className="text-xs font-semibold tracking-wide text-slate-400">
+          দোকানপাট
+        </span>
+      </div>
     </div>
   );
 }
