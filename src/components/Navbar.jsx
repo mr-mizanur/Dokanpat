@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation'; 
-import { Menu, X, ShoppingBag, Store, User, LogOut, ChevronDown } from 'lucide-react';
+import { Menu, X, Store, User, LogOut, ChevronDown, ShoppingCart } from 'lucide-react';
 import Logo from './Logo';
 import { authClient } from '@/lib/auth-client'; 
 
@@ -50,7 +50,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-xl bg-[#2d3436] border-b border-slate-800/80 text-slate-100">
+    <header className="sticky top-0 z-50 backdrop-blur-xl bg-[#2d3436]/70 border-b border-slate-800/80 text-slate-100 shadow-lg shadow-black/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
         
@@ -95,7 +95,7 @@ export default function Navbar() {
               className="relative p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all text-slate-300 hover:text-white"
               aria-label="Cart"
             >
-              <ShoppingBag className="w-5 h-5" />
+              <ShoppingCart className="w-5 h-5" />
               {totalItems > 0 && (
                 <span className="absolute -top-1.5 -right-1.5 bg-blue-600 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-lg animate-pulse">
                   {totalItems}
@@ -193,7 +193,7 @@ export default function Navbar() {
               href="/cart" 
               className="relative p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300"
             >
-              <ShoppingBag className="w-5 h-5" />
+              <ShoppingCart  className="w-5 h-5" />
               {totalItems > 0 && (
                 <span className="absolute -top-1 -right-1 bg-blue-600 text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center">
                   {totalItems}

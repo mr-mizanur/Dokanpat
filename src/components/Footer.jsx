@@ -45,7 +45,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#7f8c8d] border-t border-slate-600/50 text-slate-100 pt-16 pb-12">
+    <footer className="bg-[#7f8c8d] border-t border-slate-600/50 text-slate-900 pt-16 pb-12">
       <Toaster position="top-right" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -54,8 +54,8 @@ export default function Footer() {
          
           <div className="lg:col-span-2 space-y-4">
             <Logo />
-            <p className="text-sm leading-relaxed text-slate-100 max-w-sm">
-              MarketPulse is the ultimate multi-vendor SaaS platform empowering independent sellers to launch, manage, and scale their custom storefronts seamlessly.
+            <p className="text-sm leading-relaxed text-slate-900 max-w-sm">
+              Dokanpat is the ultimate multi-vendor SaaS platform empowering independent sellers to launch, manage, and scale their custom storefronts seamlessly.
             </p>
             <div className="flex items-center space-x-3 pt-2">
               <a 
@@ -70,48 +70,48 @@ export default function Footer() {
             </div>
           </div>
 
-         
+          {/* Platform Links */}
           <div className="space-y-4">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-900">Platform</h3>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link href="/" className="hover:text-slate-900 text-slate-100 transition-colors">Home</Link>
+                <Link href="/" className="hover:text-white text-slate-900 transition-colors">Home</Link>
               </li>
               <li>
-                <Link href="/shops" className="hover:text-slate-900 text-slate-100 transition-colors">Explore Shops</Link>
+                <Link href="/shops" className="hover:text-white text-slate-900 transition-colors">Explore Shops</Link>
               </li>
               <li>
-                <Link href="/register" className="hover:text-slate-900 text-slate-100 transition-colors">Become a Seller</Link>
+                <Link href="/register" className="hover:text-white text-slate-900 transition-colors">Become a Seller</Link>
               </li>
               <li>
-                <Link href="/dashboard/seller" className="hover:text-slate-900 text-slate-100 transition-colors">Seller Dashboard</Link>
+                <Link href="/dashboard/seller" className="hover:text-white text-slate-900 transition-colors">Seller Dashboard</Link>
               </li>
             </ul>
           </div>
 
-       
+          {/* Support Links */}
           <div className="space-y-4">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-900">Support</h3>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link href="/help" className="hover:text-slate-900 text-slate-100 transition-colors">Help Center</Link>
+                <Link href="/help" className="hover:text-white text-slate-900 transition-colors">Help Center</Link>
               </li>
               <li>
-                <Link href="/terms" className="hover:text-slate-900 text-slate-100 transition-colors">Terms of Service</Link>
+                <Link href="/terms" className="hover:text-white text-slate-900 transition-colors">Terms of Service</Link>
               </li>
               <li>
-                <Link href="/privacy" className="hover:text-slate-900 text-slate-100 transition-colors">Privacy Policy</Link>
+                <Link href="/privacy" className="hover:text-white text-slate-900 transition-colors">Privacy Policy</Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-slate-900 text-slate-100 transition-colors">Contact Us</Link>
+                <Link href="/contact" className="hover:text-white text-slate-900 transition-colors">Contact Us</Link>
               </li>
             </ul>
           </div>
 
-          
+          {/* Newsletter */}
           <div className="space-y-4">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-900">Stay Updated</h3>
-            <p className="text-xs text-slate-100 leading-relaxed">
+            <p className="text-xs text-slate-900 leading-relaxed">
               Get the latest updates, features, and tips directly to your inbox.
             </p>
             <form onSubmit={handleSubscribe} className="space-y-2">
@@ -137,7 +137,8 @@ export default function Footer() {
 
         </div>
 
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-100 gap-4">
+        
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-900 gap-4">
           <p>© {new Date().getFullYear()} দোকানপাট || Dokanpat. All rights reserved.</p>
           <p className="flex items-center gap-1">
             Connecting passionate sellers with everyday buyers, with a touch of care.

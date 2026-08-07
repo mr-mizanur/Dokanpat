@@ -174,7 +174,7 @@ export default function Hero() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent flex items-end p-4">
                   <span className="text-[11px] font-bold text-slate-200 bg-slate-900/90 px-3.5 py-1 rounded-full border border-slate-700 backdrop-blur-md shadow-lg">
-                     Featured Collection #{index + 1}
+                      #{index + 1}
                   </span>
                 </div>
               </div>
@@ -186,7 +186,7 @@ export default function Hero() {
               <Link href="/cart" className="relative flex items-center gap-2">
                 <ShoppingCart className="w-6 h-6 text-slate-100" />
                 {totalItems > 0 && (
-                  <span className="absolute -top-2 -right-2 w-5 h-5 bg-slate-800 text-white rounded-full text-[10px] font-bold flex items-center justify-center border border-slate-600">
+                <span className="absolute -top-1 -right-1 bg-blue-600 text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center">
                     {totalItems}
                   </span>
                 )}
