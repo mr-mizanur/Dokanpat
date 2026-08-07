@@ -342,7 +342,7 @@ export default function SellerDashboard() {
   return (
     <div className="min-h-screen  bg-[#7f8c8d] text-slate-100 flex">
       
-      {/* Sidebar */}
+     
       <aside className="w-64 border-r border-slate-800/80 bg-slate-900/50 backdrop-blur-xl hidden md:flex flex-col justify-between p-6">
         <div className="space-y-6">
           <div className="flex items-center gap-2 px-2">
