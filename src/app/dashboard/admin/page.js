@@ -20,11 +20,11 @@ import {
   ArrowUpRight 
 } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
-import { useSession } from '@/lib/auth-client'; // <-- সেশনের জন্য ইমপোর্ট করা হয়েছে
+import { useSession } from '@/lib/auth-client'; 
 
 export default function AdminDashboard() {
-  const { data: session, isPending } = useSession(); // সেশন এবং লোডিং স্টেট চেক
-  const [activeTab, setActiveTab] = useState('overview'); // overview, users, products, orders
+  const { data: session, isPending } = useSession();
+  const [activeTab, setActiveTab] = useState('overview'); 
   const [loading, setLoading] = useState(true);
 
   const [stats, setStats] = useState({ revenue: 0, orders: 0, products: 0, users: 0 });
@@ -32,7 +32,7 @@ export default function AdminDashboard() {
   const [products, setProducts] = useState([]);
   const [orders, setOrders] = useState([]);
 
-  // ডেটা ফেচ করার ফাংশন
+  
   const fetchAdminData = async () => {
     try {
       setLoading(true);
@@ -58,7 +58,6 @@ export default function AdminDashboard() {
     }
   }, [session]);
 
-  // ১. সেশন লোড হওয়ার সময় লোডিং স্পিনার দেখাবে
   if (isPending) {
     return (
       <div className="min-h-screen bg-slate-950 flex items-center justify-center">
@@ -67,12 +66,11 @@ export default function AdminDashboard() {
     );
   }
 
-  // ২. রোল যদি 'admin' না হয়, তবে সরাসরি 404 নট-ফাউন্ড পেজ দেখাবে
   if (!session?.user || session.user.role !== 'admin') {
     notFound();
   }
 
-  // ইউজার ব্ল্যাকলিস্ট বা স্ট্যাটাস পরিবর্তন
+
   const handleToggleUserStatus = async (userId, currentStatus) => {
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/admin/users/${userId}`, {
@@ -90,7 +88,7 @@ export default function AdminDashboard() {
     }
   };
 
-  // প্রোডাক্ট ডিলিট
+  
   const handleDeleteProduct = async (productId) => {
     if (!confirm('Are you sure you want to delete this product?')) return;
     try {
@@ -107,7 +105,7 @@ export default function AdminDashboard() {
     }
   };
 
-  // অর্ডারের স্ট্যাটাস আপডেট (Pending, Shipping, Confirmed)
+  
   const handleUpdateOrderStatus = async (orderId, newStatus) => {
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/orders/${orderId}/status`, {
@@ -126,10 +124,10 @@ export default function AdminDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex">
+    <div className="min-h-screen  bg-[#7f8c8d] text-slate-100 flex">
       <Toaster position="top-right" />
 
-      {/* Sidebar */}
+      
       <aside className="w-64 border-r border-slate-800/80 bg-slate-900/50 backdrop-blur-xl hidden md:flex flex-col justify-between p-6">
         <div className="space-y-6">
           <div className="flex items-center gap-2 px-2">

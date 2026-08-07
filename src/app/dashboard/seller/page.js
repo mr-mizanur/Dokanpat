@@ -325,7 +325,7 @@ export default function SellerDashboard() {
     }
   }, [session]);
 
-  // ১. সেশন লোড হওয়ার সময় একটি লোডিং স্পিনার বা ব্ল্যাংক স্ক্রিন দেখাবে
+
   if (isPending) {
     return (
       <div className="min-h-screen bg-slate-950 flex items-center justify-center">
@@ -334,13 +334,13 @@ export default function SellerDashboard() {
     );
   }
 
-  // ২. রোল যদি 'seller' না হয়, তবে সরাসরি নট-ফাউন্ড পেজ দেখাবে (404 Not Found)
+ 
   if (!session?.user || session.user.role !== 'seller') {
     notFound();
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex">
+    <div className="min-h-screen  bg-[#7f8c8d] text-slate-100 flex">
       
       {/* Sidebar */}
       <aside className="w-64 border-r border-slate-800/80 bg-slate-900/50 backdrop-blur-xl hidden md:flex flex-col justify-between p-6">
