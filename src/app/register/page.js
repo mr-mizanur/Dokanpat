@@ -68,7 +68,7 @@ export default function RegisterPage() {
 
           if (data && data.display_name) {
             setFormData((prev) => ({ ...prev, address: data.display_name }));
-            toast.success('Location detected successfully! 📍', { id: 'locating' });
+            toast.success('Location detected successfully! ', { id: 'locating' });
           } else {
             throw new Error('Failed to resolve address');
           }
@@ -143,7 +143,7 @@ export default function RegisterPage() {
           setLoading(true);
         },
         onSuccess: () => {
-          toast.success(`Successfully registered as ${formData.role.toUpperCase()}! 🎉`, {
+          toast.success(`Successfully registered as ${formData.role.toUpperCase()}! `, {
             style: {
               background: '#ffffff',
               color: '#1e293b',

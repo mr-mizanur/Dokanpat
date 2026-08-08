@@ -25,7 +25,7 @@ export default function LoginPage() {
           setLoading(true);
         },
         onSuccess: async (ctx) => {
-          toast.success('Successfully signed in! 🎉', {
+          toast.success('Successfully signed in! ', {
             style: {
               background: '#ffffff',
               color: '#1e293b',

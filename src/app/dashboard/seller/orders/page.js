@@ -69,7 +69,7 @@ export default function SellerOrdersPage() {
       const data = await res.json();
 
       if (res.ok) {
-        toast.success(`Order marked as ${newStatus}! 🎉`, {
+        toast.success(`Order marked as ${newStatus}! `, {
           style: { background: '#ffffff', color: '#1e293b', border: '1px solid #ffedd5' },
         });
         
