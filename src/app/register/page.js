@@ -1,245 +1,9 @@
-//'use client';
-//
-//import { useState } from 'react';
-//import Link from 'next/link';
-//import { useRouter } from 'next/navigation';
-//import { Store, Mail, Lock, User, Image as ImageIcon, ArrowRight, ShieldCheck, ShoppingBag } from 'lucide-react';
-//import toast, { Toaster } from 'react-hot-toast';
-//import { signUp } from '@/lib/auth-client';
-//
-//export default function RegisterPage() {
-//  const router = useRouter();
-//  const [formData, setFormData] = useState({ 
-//    name: '', 
-//    email: '', 
-//    password: '', 
-//    role: 'buyer', 
-//    image: null 
-//  });
-//  const [previewImage, setPreviewImage] = useState(null);
-//  const [loading, setLoading] = useState(false);
-//
-//  const handleImageChange = (e) => {
-//    const file = e.target.files[0];
-//    if (file) {
-//      setFormData({ ...formData, image: file });
-//      setPreviewImage(URL.createObjectURL(file));
-//    }
-//  };
-//
-//  const handleSubmit = async (e) => {
-//    e.preventDefault();
-//    setLoading(true);
-//
-//    try {
-//      let imageUrl = '';
-//
-//      if (formData.image) {
-//        const imageFormData = new FormData();
-//        imageFormData.append('image', formData.image);
-//
-//        const imgbbRes = await fetch(`https://api.imgbb.com/1/upload?key=b169b50f1aa774fb19ee6f6e408f5819`, {
-//          method: 'POST',
-//          body: imageFormData,
-//        });
-//        const imgbbData = await imgbbRes.json();
-//        
-//        if (imgbbData.success) {
-//          imageUrl = imgbbData.data.url;
-//        } else {
-//          throw new Error('Image upload failed');
-//        }
-//      }
-//
-//      // Better Auth দিয়ে সাইন আপ (role ফিল্ডটি এভাবে পাঠাতে হবে)
-//      const { data, error } = await signUp.email({
-//        email: formData.email,
-//        password: formData.password,
-//        name: formData.name,
-//        image: imageUrl || undefined,
-//        role: formData.role, // কাস্টম ফিল্ড এখানে যুক্ত হলো
-//      }, {
-//        onRequest: () => {
-//          setLoading(true);
-//        },
-//        onSuccess: () => {
-//          toast.success(`Successfully registered as ${formData.role.toUpperCase()}! 🎉`, {
-//            style: {
-//              background: '#090d16',
-//              color: '#fff',
-//              border: '1px solid #1e293b',
-//            },
-//          });
-//
-//          setTimeout(() => {
-//            if (formData.role === 'seller') {
-//              router.push('/dashboard/seller');
-//            } else {
-//              router.push('/');
-//            }
-//            router.refresh();
-//          }, 1000);
-//        },
-//        onError: (ctx) => {
-//          throw new Error(ctx.error.message || 'Registration failed');
-//        },
-//      });
-//
-//      if (error) {
-//        throw new Error(error.message);
-//      }
-//
-//    } catch (error) {
-//      toast.error(error.message || 'Something went wrong. Please try again!', {
-//        style: {
-//          background: '#090d16',
-//          color: '#fff',
-//          border: '1px solid #1e293b',
-//        },
-//      });
-//    } finally {
-//      setLoading(false);
-//    }
-//  };
-//
-//  return (
-//    <div className="min-h-screen bg-slate-950 text-slate-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-//      <Toaster position="top-right" />
-//      
-//      <div className="max-w-md w-full space-y-6 bg-slate-900/80 border border-slate-800/80 p-8 rounded-2xl backdrop-blur-xl shadow-2xl">
-//        
-//        <div className="text-center space-y-2">
-//          <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-600/10 border border-blue-500/20 text-blue-400 mb-1">
-//            <Store className="w-6 h-6" />
-//          </div>
-//          <h1 className="text-2xl font-black tracking-tight text-slate-100">Create Account</h1>
-//          <p className="text-xs text-slate-400">Join MarketPulse as a Seller or Buyer</p>
-//        </div>
-//
-//        <form onSubmit={handleSubmit} className="space-y-4">
-//          <div className="space-y-1.5">
-//            <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Select Account Type</label>
-//            <div className="grid grid-cols-2 gap-3">
-//              <button
-//                type="button"
-//                onClick={() => setFormData({ ...formData, role: 'buyer' })}
-//                className={`py-2.5 px-4 rounded-xl text-xs font-bold border transition-all flex items-center justify-center gap-2 ${
-//                  formData.role === 'buyer'
-//                    ? 'bg-blue-600/20 border-blue-500 text-blue-400 shadow-lg shadow-blue-500/10'
-//                    : 'bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700'
-//                }`}
-//              >
-//                <ShoppingBag className="w-4 h-4" />
-//                <span>Buyer</span>
-//              </button>
-//
-//              <button
-//                type="button"
-//                onClick={() => setFormData({ ...formData, role: 'seller' })}
-//                className={`py-2.5 px-4 rounded-xl text-xs font-bold border transition-all flex items-center justify-center gap-2 ${
-//                  formData.role === 'seller'
-//                    ? 'bg-blue-600/20 border-blue-500 text-blue-400 shadow-lg shadow-blue-500/10'
-//                    : 'bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700'
-//                }`}
-//              >
-//                <ShieldCheck className="w-4 h-4" />
-//                <span>Seller</span>
-//              </button>
-//            </div>
-//          </div>
-//
-//          <div className="space-y-1.5">
-//            <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Full Name</label>
-//            <div className="relative">
-//              <User className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-500" />
-//              <input 
-//                type="text" 
-//                placeholder="Mizanur Rahman"
-//                value={formData.name}
-//                onChange={(e) => setFormData({...formData, name: e.target.value})}
-//                required
-//                className="w-full pl-10 pr-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-blue-500 transition-all"
-//              />
-//            </div>
-//          </div>
-//
-//          <div className="space-y-1.5">
-//            <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Email Address</label>
-//            <div className="relative">
-//              <Mail className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-500" />
-//              <input 
-//                type="email" 
-//                placeholder="name@example.com"
-//                value={formData.email}
-//                onChange={(e) => setFormData({...formData, email: e.target.value})}
-//                required
-//                className="w-full pl-10 pr-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-blue-500 transition-all"
-//              />
-//            </div>
-//          </div>
-//
-//          <div className="space-y-1.5">
-//            <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Password</label>
-//            <div className="relative">
-//              <Lock className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-500" />
-//              <input 
-//                type="password" 
-//                placeholder="••••••••"
-//                value={formData.password}
-//                onChange={(e) => setFormData({...formData, password: e.target.value})}
-//                required
-//                className="w-full pl-10 pr-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-blue-500 transition-all"
-//              />
-//            </div>
-//          </div>
-//
-//          <div className="space-y-1.5">
-//            <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
-//              {formData.role === 'seller' ? 'Store Logo / Profile Picture' : 'Profile Picture'}
-//            </label>
-//            <div className="flex items-center gap-4">
-//              <label className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-400 hover:border-slate-700 cursor-pointer transition-all">
-//                <ImageIcon className="w-4 h-4 text-slate-500" />
-//                <span className="truncate">{formData.image ? formData.image.name : 'Choose image...'}</span>
-//                <input type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
-//              </label>
-//              {previewImage && (
-//                <img src={previewImage} alt="Preview" className="w-11 h-11 rounded-xl object-cover border border-slate-700" />
-//              )}
-//            </div>
-//          </div>
-//
-//          <button 
-//            type="submit" 
-//            disabled={loading}
-//            className="w-full py-3 px-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-sm font-semibold rounded-xl shadow-lg shadow-blue-500/20 transition-all flex items-center justify-center gap-2 mt-2"
-//          >
-//            <span>{loading ? 'Creating Account...' : `Sign Up as ${formData.role.toUpperCase()}`}</span>
-//            <ArrowRight className="w-4 h-4" />
-//          </button>
-//        </form>
-//
-//        <div className="text-center text-xs text-slate-400 pt-1">
-//          Already have an account?{' '}
-//          <Link href="/login" className="text-blue-400 font-semibold hover:underline">
-//            Sign In
-//          </Link>
-//        </div>
-//
-//      </div>
-//    </div>
-//  );
-//}
-
-
-
-
 'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Store, Mail, Lock, User, Phone, Image as ImageIcon, ArrowRight, ShieldCheck, ShoppingBag, MapPin, Loader2, Tag } from 'lucide-react';
+import { Store, Mail, Lock, User, Phone, Image as ImageIcon, ArrowRight, ShieldCheck, ShoppingBag, MapPin, Loader2 } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
 import { signUp } from '@/lib/auth-client';
 
@@ -379,11 +143,11 @@ export default function RegisterPage() {
           setLoading(true);
         },
         onSuccess: () => {
-          toast.success(`Successfully registered as ${formData.role.toUpperCase()}! `, {
+          toast.success(`Successfully registered as ${formData.role.toUpperCase()}! 🎉`, {
             style: {
-              background: '#090d16',
-              color: '#fff',
-              border: '1px solid #1e293b',
+              background: '#ffffff',
+              color: '#1e293b',
+              border: '1px solid #ffedd5',
             },
           });
 
@@ -408,9 +172,9 @@ export default function RegisterPage() {
     } catch (error) {
       toast.error(error.message || 'Something went wrong. Please try again!', {
         style: {
-          background: '#090d16',
-          color: '#fff',
-          border: '1px solid #1e293b',
+          background: '#ffffff',
+          color: '#1e293b',
+          border: '1px solid #ffedd5',
         },
       });
     } finally {
@@ -419,30 +183,30 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#7f8c8d] text-slate-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-slate-50 text-slate-800 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <Toaster position="top-right" />
       
-      <div className="max-w-md w-full space-y-6 bg-slate-900/80 border border-slate-800/80 p-8 rounded-2xl backdrop-blur-xl shadow-2xl">
+      <div className="max-w-md w-full space-y-6 bg-white border border-orange-100 p-8 rounded-3xl shadow-md">
         
         <div className="text-center space-y-2">
-          <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-600/10 border border-blue-500/20 text-blue-400 mb-1">
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-orange-50 border border-orange-100 text-orange-600 mb-1">
             <Store className="w-6 h-6" />
           </div>
-          <h1 className="text-2xl font-black tracking-tight text-slate-100">Create Account</h1>
-          <p className="text-xs text-slate-400">Join MarketPulse as a Seller or Buyer</p>
+          <h1 className="text-2xl font-black tracking-tight text-slate-900">Create Account</h1>
+          <p className="text-xs text-slate-500">Join Dokanpat as a Seller or Buyer</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-1.5">
-            <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Select Account Type</label>
+            <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider">Select Account Type</label>
             <div className="grid grid-cols-2 gap-3">
               <button
                 type="button"
                 onClick={() => setFormData({ ...formData, role: 'buyer' })}
                 className={`py-2.5 px-4 rounded-xl text-xs font-bold border transition-all flex items-center justify-center gap-2 ${
                   formData.role === 'buyer'
-                    ? 'bg-blue-600/20 border-blue-500 text-blue-400 shadow-lg shadow-blue-500/10'
-                    : 'bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700'
+                    ? 'bg-orange-50 border-orange-500 text-orange-600 shadow-sm'
+                    : 'bg-white border-orange-100 text-slate-500 hover:border-orange-200'
                 }`}
               >
                 <ShoppingBag className="w-4 h-4" />
@@ -454,8 +218,8 @@ export default function RegisterPage() {
                 onClick={() => setFormData({ ...formData, role: 'seller' })}
                 className={`py-2.5 px-4 rounded-xl text-xs font-bold border transition-all flex items-center justify-center gap-2 ${
                   formData.role === 'seller'
-                    ? 'bg-blue-600/20 border-blue-500 text-blue-400 shadow-lg shadow-blue-500/10'
-                    : 'bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700'
+                    ? 'bg-orange-50 border-orange-500 text-orange-600 shadow-sm'
+                    : 'bg-white border-orange-100 text-slate-500 hover:border-orange-200'
                 }`}
               >
                 <ShieldCheck className="w-4 h-4" />
@@ -466,99 +230,99 @@ export default function RegisterPage() {
 
         
           {formData.role === 'seller' && (
-            <div className="space-y-3 p-4 bg-slate-950/60 border border-slate-800/80 rounded-xl">
+            <div className="space-y-3 p-4 bg-orange-50/40 border border-orange-100 rounded-2xl">
               <div className="space-y-1.5">
-                <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Store Name <span className="text-red-500">*</span></label>
+                <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider">Store Name <span className="text-red-500">*</span></label>
                 <div className="relative">
-                  <Store className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-500" />
+                  <Store className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-400" />
                   <input 
                     type="text" 
                     placeholder="e.g. Mizan Gadgets Store"
                     value={formData.shopName}
                     onChange={handleShopNameChange}
                     required={formData.role === 'seller'}
-                    className="w-full pl-10 pr-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-blue-500 transition-all"
+                    className="w-full pl-10 pr-4 py-3 bg-white border border-orange-100 rounded-xl text-xs text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-orange-500 transition-all shadow-sm"
                   />
                 </div>
               </div>
 
               {formData.shopUsername && (
-                <div className="flex items-center justify-between text-[11px] text-slate-400 bg-slate-900 px-3 py-2 rounded-lg border border-slate-800">
+                <div className="flex items-center justify-between text-[11px] text-slate-600 bg-white px-3 py-2 rounded-lg border border-orange-100">
                   <span>Auto-generated Username:</span>
-                  <strong className="text-blue-400 font-mono">@{formData.shopUsername}</strong>
+                  <strong className="text-orange-600 font-mono">@{formData.shopUsername}</strong>
                 </div>
               )}
             </div>
           )}
 
           <div className="space-y-1.5">
-            <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Full Name</label>
+            <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider">Full Name</label>
             <div className="relative">
-              <User className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-500" />
+              <User className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-400" />
               <input 
                 type="text" 
                 placeholder="Mizanur Rahman"
                 value={formData.name}
                 onChange={(e) => setFormData({...formData, name: e.target.value})}
                 required
-                className="w-full pl-10 pr-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-blue-500 transition-all"
+                className="w-full pl-10 pr-4 py-3 bg-white border border-orange-100 rounded-xl text-xs text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-orange-500 transition-all shadow-sm"
               />
             </div>
           </div>
 
           <div className="space-y-1.5">
-            <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Email Address</label>
+            <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider">Email Address</label>
             <div className="relative">
-              <Mail className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-500" />
+              <Mail className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-400" />
               <input 
                 type="email" 
                 placeholder="name@example.com"
                 value={formData.email}
                 onChange={(e) => setFormData({...formData, email: e.target.value})}
                 required
-                className="w-full pl-10 pr-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-blue-500 transition-all"
+                className="w-full pl-10 pr-4 py-3 bg-white border border-orange-100 rounded-xl text-xs text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-orange-500 transition-all shadow-sm"
               />
             </div>
           </div>
 
           <div className="space-y-1.5">
-            <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Phone Number</label>
+            <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider">Phone Number</label>
             <div className="relative">
-              <Phone className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-500" />
+              <Phone className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-400" />
               <input 
                 type="tel" 
                 placeholder="+880 1700000000"
                 value={formData.phone}
                 onChange={(e) => setFormData({...formData, phone: e.target.value})}
                 required
-                className="w-full pl-10 pr-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-blue-500 transition-all"
+                className="w-full pl-10 pr-4 py-3 bg-white border border-orange-100 rounded-xl text-xs text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-orange-500 transition-all shadow-sm"
               />
             </div>
           </div>
 
           <div className="space-y-1.5">
-            <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Password</label>
+            <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider">Password</label>
             <div className="relative">
-              <Lock className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-500" />
+              <Lock className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-400" />
               <input 
                 type="password" 
                 placeholder="••••••••"
                 value={formData.password}
                 onChange={(e) => setFormData({...formData, password: e.target.value})}
                 required
-                className="w-full pl-10 pr-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-blue-500 transition-all"
+                className="w-full pl-10 pr-4 py-3 bg-white border border-orange-100 rounded-xl text-xs text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-orange-500 transition-all shadow-sm"
               />
             </div>
           </div>
 
           <div className="space-y-1.5">
             <div className="flex items-center justify-between">
-              <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Shipping Address <span className="text-red-500">*</span></label>
+              <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider">Shipping Address <span className="text-red-500">*</span></label>
               <button
                 type="button"
                 onClick={handleAutoDetectLocation}
                 disabled={locating}
-                className="text-[11px] text-blue-400 hover:underline flex items-center gap-1 font-semibold"
+                className="text-[11px] text-orange-600 hover:underline flex items-center gap-1 font-semibold"
               >
                 {locating ? <Loader2 className="w-3 h-3 animate-spin" /> : <MapPin className="w-3 h-3" />}
                 <span>Auto-detect Location</span>
@@ -571,23 +335,23 @@ export default function RegisterPage() {
                 value={formData.address}
                 onChange={(e) => setFormData({...formData, address: e.target.value})}
                 required
-                className="w-full px-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-blue-500 transition-all resize-none"
+                className="w-full px-4 py-3 bg-white border border-orange-100 rounded-xl text-xs text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-orange-500 transition-all shadow-sm resize-none"
               />
             </div>
           </div>
 
           <div className="space-y-1.5">
-            <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
+            <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider">
               {formData.role === 'seller' ? 'Store Logo / Profile Picture' : 'Profile Picture'}
             </label>
             <div className="flex items-center gap-4">
-              <label className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-400 hover:border-slate-700 cursor-pointer transition-all">
-                <ImageIcon className="w-4 h-4 text-slate-500" />
+              <label className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-white border border-orange-100 rounded-xl text-xs text-slate-500 hover:border-orange-200 cursor-pointer transition-all shadow-sm">
+                <ImageIcon className="w-4 h-4 text-slate-400" />
                 <span className="truncate">{formData.image ? formData.image.name : 'Choose image...'}</span>
                 <input type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
               </label>
               {previewImage && (
-                <img src={previewImage} alt="Preview" className="w-11 h-11 rounded-xl object-cover border border-slate-700" />
+                <img src={previewImage} alt="Preview" className="w-11 h-11 rounded-xl object-cover border border-orange-100" />
               )}
             </div>
           </div>
@@ -595,16 +359,16 @@ export default function RegisterPage() {
           <button 
             type="submit" 
             disabled={loading}
-            className="w-full py-3 px-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-sm font-semibold rounded-xl shadow-lg shadow-blue-500/20 transition-all flex items-center justify-center gap-2 mt-2"
+            className="w-full py-3 px-4 bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white text-xs font-semibold rounded-xl shadow-md shadow-orange-500/20 transition-all flex items-center justify-center gap-2 mt-2"
           >
             <span>{loading ? 'Creating Account...' : `Sign Up as ${formData.role.toUpperCase()}`}</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </form>
 
-        <div className="text-center text-xs text-slate-400 pt-1">
+        <div className="text-center text-xs text-slate-500 pt-1">
           Already have an account?{' '}
-          <Link href="/login" className="text-blue-400 font-semibold hover:underline">
+          <Link href="/login" className="text-orange-600 font-semibold hover:underline">
             Sign In
           </Link>
         </div>

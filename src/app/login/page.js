@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Store, Mail, Lock, ArrowRight } from 'lucide-react';
+import { Store, Mail, Lock, ArrowRight, Loader2 } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
 import { signIn } from '@/lib/auth-client'; 
 
@@ -17,7 +17,6 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
-    
       const { data, error } = await signIn.email({
         email: formData.email,
         password: formData.password,
@@ -26,15 +25,14 @@ export default function LoginPage() {
           setLoading(true);
         },
         onSuccess: async (ctx) => {
-          toast.success('Successfully signed in! ', {
+          toast.success('Successfully signed in! 🎉', {
             style: {
-              background: '#090d16',
-              color: '#fff',
-              border: '1px solid #1e293b',
+              background: '#ffffff',
+              color: '#1e293b',
+              border: '1px solid #ffedd5',
             },
           });
 
-         
           const sessionRes = await fetch('/api/auth/get-session');
           const session = await sessionRes.json();
           const userRole = session?.user?.role;
@@ -60,9 +58,9 @@ export default function LoginPage() {
     } catch (error) {
       toast.error(error.message || 'Failed to sign in. Please check your credentials!', {
         style: {
-          background: '#090d16',
-          color: '#fff',
-          border: '1px solid #1e293b',
+          background: '#ffffff',
+          color: '#1e293b',
+          border: '1px solid #ffedd5',
         },
       });
     } finally {
@@ -71,48 +69,46 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#7f8c8d] text-slate-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-slate-50 text-slate-800 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <Toaster position="top-right" />
       
-      <div className="max-w-md w-full space-y-8 bg-slate-900/80 border border-slate-800/80 p-8 rounded-2xl backdrop-blur-xl shadow-2xl">
-        
+      <div className="max-w-md w-full space-y-6 bg-white border border-orange-100 p-8 rounded-3xl shadow-md">
         
         <div className="text-center space-y-2">
-          <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-600/10 border border-blue-500/20 text-blue-400 mb-2">
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-orange-50 border border-orange-100 text-orange-600 mb-1">
             <Store className="w-6 h-6" />
           </div>
-          <h1 className="text-2xl font-black tracking-tight text-slate-100">Welcome Back</h1>
-          <p className="text-xs text-slate-400">Sign in to your MarketPulse account</p>
+          <h1 className="text-2xl font-black tracking-tight text-slate-900">Welcome Back</h1>
+          <p className="text-xs text-slate-500">Sign in to your Dokanpat account</p>
         </div>
 
-       
-        <form onSubmit={handleSubmit} className="space-y-5">
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-1.5">
-            <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Email Address</label>
+            <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider">Email Address</label>
             <div className="relative">
-              <Mail className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-500" />
+              <Mail className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-400" />
               <input 
                 type="email" 
                 placeholder="name@example.com"
                 value={formData.email}
                 onChange={(e) => setFormData({...formData, email: e.target.value})}
                 required
-                className="w-full pl-10 pr-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-blue-500 transition-all"
+                className="w-full pl-10 pr-4 py-3 bg-white border border-orange-100 rounded-xl text-xs text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-orange-500 transition-all shadow-sm"
               />
             </div>
           </div>
 
           <div className="space-y-1.5">
-            <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Password</label>
+            <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider">Password</label>
             <div className="relative">
-              <Lock className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-500" />
+              <Lock className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-400" />
               <input 
                 type="password" 
                 placeholder="••••••••"
                 value={formData.password}
                 onChange={(e) => setFormData({...formData, password: e.target.value})}
                 required
-                className="w-full pl-10 pr-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-blue-500 transition-all"
+                className="w-full pl-10 pr-4 py-3 bg-white border border-orange-100 rounded-xl text-xs text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-orange-500 transition-all shadow-sm"
               />
             </div>
           </div>
@@ -120,17 +116,25 @@ export default function LoginPage() {
           <button 
             type="submit" 
             disabled={loading}
-            className="w-full py-3 px-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-sm font-semibold rounded-xl shadow-lg shadow-blue-500/20 transition-all flex items-center justify-center gap-2"
+            className="w-full py-3 px-4 bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white text-xs font-semibold rounded-xl shadow-md shadow-orange-500/20 transition-all flex items-center justify-center gap-2 mt-2"
           >
-            <span>{loading ? 'Signing In...' : 'Sign In'}</span>
-            <ArrowRight className="w-4 h-4" />
+            {loading ? (
+              <>
+                <Loader2 className="w-4 h-4 animate-spin" />
+                <span>Signing In...</span>
+              </>
+            ) : (
+              <>
+                <span>Sign In</span>
+                <ArrowRight className="w-4 h-4" />
+              </>
+            )}
           </button>
         </form>
 
-        {/* Footer Link */}
-        <div className="text-center text-xs text-slate-400 pt-2">
+        <div className="text-center text-xs text-slate-500 pt-1">
           Don't have an account?{' '}
-          <Link href="/register" className="text-blue-400 font-semibold hover:underline">
+          <Link href="/register" className="text-orange-600 font-semibold hover:underline">
             Sign Up
           </Link>
         </div>

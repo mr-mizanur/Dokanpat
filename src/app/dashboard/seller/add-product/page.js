@@ -78,7 +78,7 @@ export default function AddProductPage() {
         stock: formData.stock,
         description: formData.description,
         image: imageUrl,
-        sellerEmail: userEmail || 'unknown@marketpulse.com',
+        sellerEmail: userEmail || 'unknown@dokanpat.com',
       };
 
    
@@ -96,8 +96,8 @@ export default function AddProductPage() {
         throw new Error(data.message || 'Failed to add product');
       }
 
-      toast.success('Product added successfully! ', {
-        style: { background: '#090d16', color: '#fff', border: '1px solid #1e293b' },
+      toast.success('Product added successfully! 🎉', {
+        style: { background: '#ffffff', color: '#1e293b', border: '1px solid #ffedd5' },
       });
 
       setTimeout(() => {
@@ -107,7 +107,7 @@ export default function AddProductPage() {
 
     } catch (error) {
       toast.error(error.message || 'Something went wrong!', {
-        style: { background: '#090d16', color: '#fff', border: '1px solid #1e293b' },
+        style: { background: '#ffffff', color: '#1e293b', border: '1px solid #ffedd5' },
       });
     } finally {
       setLoading(false);
@@ -115,24 +115,24 @@ export default function AddProductPage() {
   };
 
   return (
-    <div className="min-h-screen  bg-[#7f8c8d] text-slate-100 flex items-center justify-center py-10 px-4 sm:px-6">
+    <div className="min-h-screen bg-slate-50 text-slate-800 flex items-center justify-center py-10 px-4 sm:px-6">
       <Toaster position="top-right" />
 
-      <div className="max-w-2xl w-full space-y-6 bg-slate-900/80 border border-slate-800/80 p-8 rounded-2xl backdrop-blur-xl shadow-2xl">
+      <div className="max-w-2xl w-full space-y-6 bg-white border border-orange-100 p-8 rounded-2xl shadow-sm">
         
        
-        <div className="flex items-center justify-between pb-4 border-b border-slate-800/80">
+        <div className="flex items-center justify-between pb-4 border-b border-orange-100">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center text-blue-400">
+            <div className="w-10 h-10 rounded-xl bg-orange-50 border border-orange-200 flex items-center justify-center text-orange-600">
               <Sparkles className="w-5 h-5" />
             </div>
             <div>
-              <h1 className="text-xl font-black tracking-tight text-slate-100">Add New Product</h1>
-              <p className="text-xs text-slate-400">Listing as: <span className="text-blue-400 font-semibold">{userEmail || 'Loading...'}</span></p>
+              <h1 className="text-xl font-black tracking-tight text-slate-900">Add New Product</h1>
+              <p className="text-xs text-slate-500">Listing as: <span className="text-orange-600 font-semibold">{userEmail || 'Loading...'}</span></p>
             </div>
           </div>
 
-          <Link href="/dashboard/seller" className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-950 border border-slate-800 text-slate-400 hover:text-slate-200 transition-all">
+          <Link href="/dashboard/seller" className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-50 border border-orange-100 text-slate-600 hover:text-orange-600 transition-all">
             <ArrowLeft className="w-4 h-4" />
             <span>Back</span>
           </Link>
@@ -142,29 +142,29 @@ export default function AddProductPage() {
         <form onSubmit={handleSubmit} className="space-y-4">
           
           <div className="space-y-1.5">
-            <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Product Name</label>
+            <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider">Product Name</label>
             <div className="relative">
-              <Package className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-500" />
+              <Package className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-400" />
               <input 
                 type="text" 
-                placeholder="e.g. Cyberpunk Mechanical Keyboard"
+                placeholder="e.g. Premium Cotton Panjabi"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 required
-                className="w-full pl-10 pr-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-blue-500 transition-all"
+                className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-orange-100 rounded-xl text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-orange-500 transition-all shadow-sm"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Category</label>
+              <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider">Category</label>
               <div className="relative">
-                <Layers className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-500" />
+                <Layers className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-400" />
                 <select 
                   value={formData.category}
                   onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                  className="w-full pl-10 pr-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 focus:outline-none focus:border-blue-500 transition-all"
+                  className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-orange-100 rounded-xl text-sm text-slate-800 focus:outline-none focus:border-orange-500 transition-all shadow-sm"
                 >
                   <option value="Accessories">Accessories</option>
                   <option value="Gadgets">Gadgets</option>
@@ -175,63 +175,63 @@ export default function AddProductPage() {
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Price ($)</label>
+              <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider">Price (৳)</label>
               <div className="relative">
-                <DollarSign className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-500" />
+                <DollarSign className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-400" />
                 <input 
                   type="number" 
                   step="0.01"
-                  placeholder="85.00"
+                  placeholder="1250"
                   value={formData.price}
                   onChange={(e) => setFormData({ ...formData, price: e.target.value })}
                   required
-                  className="w-full pl-10 pr-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-blue-500 transition-all"
+                  className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-orange-100 rounded-xl text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-orange-500 transition-all shadow-sm"
                 />
               </div>
             </div>
           </div>
 
           <div className="space-y-1.5">
-            <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Stock Quantity</label>
+            <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider">Stock Quantity</label>
             <input 
               type="number" 
               placeholder="15"
               value={formData.stock}
               onChange={(e) => setFormData({ ...formData, stock: e.target.value })}
               required
-              className="w-full px-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-blue-500 transition-all"
+              className="w-full px-4 py-3 bg-slate-50 border border-orange-100 rounded-xl text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-orange-500 transition-all shadow-sm"
             />
           </div>
 
           <div className="space-y-1.5">
-            <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Product Image</label>
+            <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider">Product Image</label>
             <div className="flex items-center gap-4">
-              <label className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-400 hover:border-slate-700 cursor-pointer transition-all">
-                <ImageIcon className="w-4 h-4 text-slate-500" />
+              <label className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-slate-50 border border-orange-100 rounded-xl text-sm text-slate-600 hover:border-orange-300 cursor-pointer transition-all shadow-sm">
+                <ImageIcon className="w-4 h-4 text-orange-600" />
                 <span className="truncate">{formData.image ? formData.image.name : 'Upload product image...'}</span>
                 <input type="file" accept="image/*" onChange={handleImageChange} required className="hidden" />
               </label>
               {previewImage && (
-                <img src={previewImage} alt="Preview" className="w-12 h-12 rounded-xl object-cover border border-slate-700 shadow-md" />
+                <img src={previewImage} alt="Preview" className="w-12 h-12 rounded-xl object-cover border border-orange-200 shadow-sm bg-white" />
               )}
             </div>
           </div>
 
           <div className="space-y-1.5">
-            <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Description</label>
+            <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider">Description</label>
             <textarea 
               rows="3"
               placeholder="Write a brief description about the product..."
               value={formData.description}
               onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-              className="w-full px-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-blue-500 transition-all resize-none"
+              className="w-full px-4 py-3 bg-slate-50 border border-orange-100 rounded-xl text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-orange-500 transition-all resize-none shadow-sm"
             />
           </div>
 
           <button 
             type="submit" 
             disabled={loading}
-            className="w-full py-3.5 px-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-sm font-semibold rounded-xl shadow-lg shadow-blue-500/20 transition-all flex items-center justify-center gap-2 mt-2"
+            className="w-full py-3.5 px-4 bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white text-sm font-semibold rounded-xl shadow-md shadow-orange-500/25 transition-all flex items-center justify-center gap-2 mt-2"
           >
             <span>{loading ? 'Publishing Product...' : 'Publish Product'}</span>
             <Send className="w-4 h-4" />
