@@ -96,7 +96,7 @@ export default function AddProductPage() {
         throw new Error(data.message || 'Failed to add product');
       }
 
-      toast.success('Product added successfully! 🎉', {
+      toast.success('Product added successfully!', {
         style: { background: '#ffffff', color: '#1e293b', border: '1px solid #ffedd5' },
       });
 

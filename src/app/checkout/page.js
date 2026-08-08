@@ -86,7 +86,7 @@ export default function CheckoutPage() {
       const data = await res.json();
 
       if (res.ok) {
-        toast.success('Order placed successfully! 🎉', {
+        toast.success('Order placed successfully!', {
           style: { background: '#ffffff', color: '#1e293b', border: '1px solid #ffedd5' }
         });
 
