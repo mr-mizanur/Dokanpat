@@ -93,7 +93,7 @@ export default function ProductDetailsPage() {
 
       <div className="max-w-6xl mx-auto space-y-6">
         
-        {/* Back Button */}
+       
         <button 
           onClick={() => router.back()}
           className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-orange-100 hover:bg-orange-50 text-slate-700 text-xs font-semibold rounded-xl shadow-sm transition-all"
@@ -102,10 +102,10 @@ export default function ProductDetailsPage() {
           <span>Back to Products</span>
         </button>
 
-        {/* Main Details Card */}
+        
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 bg-white border border-orange-100 p-6 sm:p-10 rounded-3xl shadow-md items-start">
           
-          {/* Product Image */}
+        
           <div className="lg:col-span-6 relative h-80 sm:h-[420px] w-full rounded-2xl overflow-hidden border border-orange-100 bg-slate-100 shadow-sm">
             <img 
               src={product.image || 'https://via.placeholder.com/600'} 
@@ -119,7 +119,7 @@ export default function ProductDetailsPage() {
             )}
           </div>
 
-          {/* Product Info */}
+        
           <div className="lg:col-span-6 space-y-6">
             
             <div className="space-y-3">
@@ -141,7 +141,7 @@ export default function ProductDetailsPage() {
               </p>
             </div>
 
-            {/* Quantity Selector & Add to Cart */}
+           
             {product.stock > 0 && (
               <div className="space-y-4 pt-2">
                 <div className="flex items-center gap-4">
@@ -173,7 +173,7 @@ export default function ProductDetailsPage() {
               </div>
             )}
 
-            {/* Additional Perks */}
+          
             <div className="grid grid-cols-2 gap-4 pt-4 border-t border-orange-50">
               <div className="flex items-center gap-2 text-xs text-slate-600 font-medium">
                 <ShieldCheck className="w-4 h-4 text-orange-600 shrink-0" />
