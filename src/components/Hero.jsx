@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { ShoppingCart, Package, Sparkles, Loader2, ArrowRight, Megaphone, Search, X } from 'lucide-react';
+import { ShoppingCart, Package, Sparkles, Loader2, ArrowRight, Megaphone, Search, X, Eye } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
 import Logo from './Logo';
 
@@ -276,6 +276,15 @@ export default function Hero() {
                 </div>
 
                 <div className="p-4 border-t border-orange-50 bg-orange-50/30">
+                 <div className="p-4 border-t border-orange-50 bg-orange-50/30 space-y-2">
+                  <Link 
+                    href={`/products/${product._id}`}
+                    className="w-full py-2 px-4 bg-white border border-orange-200 hover:bg-orange-50 text-slate-700 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm"
+                  >
+                    <Eye className="w-4 h-4 text-orange-600" />
+                    <span>View Details</span>
+                  </Link>
+
                   <button 
                     onClick={() => addToCart(product)}
                     className="w-full py-2.5 px-4 bg-orange-600 hover:bg-orange-500 text-white text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm shadow-orange-500/20"
@@ -283,6 +292,7 @@ export default function Hero() {
                     <ShoppingCart className="w-4 h-4" />
                     <span>Add to Cart</span>
                   </button>
+                </div>
                 </div>
               </div>
             ))}

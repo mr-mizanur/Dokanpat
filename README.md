@@ -6,7 +6,7 @@ It features a futuristic dark-mode UI with glassmorphism aesthetics, secure auth
 
 **Live Demo:** [https://dokanpat.vercel.app](https://dokanpat.vercel.app) <br>
 **Sitemap:** [https://dokanpat.vercel.app/sitemap.xml](https://dokanpat.vercel.app/sitemap.xml) <br>
-**API Server:** [https://market-pulse-server-five.vercel.app/](https://market-pulse-server-five.vercel.app/)
+**API Server:** 
 
 ---
 

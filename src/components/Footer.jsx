@@ -58,7 +58,7 @@ export default function Footer() {
             </p>
             <div className="flex items-center space-x-3 pt-2">
               <a 
-                href="mailto:marketpulse@gmail.com" 
+                href="mailto:mizanur.codes@gmail.com" 
                 className="p-2.5 rounded-xl bg-orange-50 border border-orange-100 hover:border-orange-200 text-slate-600 hover:text-orange-600 transition-all"
                 aria-label="Email"
               >
@@ -126,7 +126,7 @@ export default function Footer() {
                 className="w-full py-2.5 px-4 bg-orange-600 hover:bg-orange-500 text-white text-sm font-semibold rounded-xl shadow-md shadow-orange-500/20 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
               >
                 <span>{subscribing ? 'Subscribing...' : 'Subscribe'}</span>
-                <Send className="w-3.5 h-3.5" />
+                
               </button>
             </form>
           </div>
