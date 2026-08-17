@@ -136,9 +136,9 @@ export default function Hero() {
           <div className="lg:col-span-7 space-y-5">
             
             <div className="space-y-2">
-              <h1 className="text-2xl sm:text-4xl font-black tracking-tight text-slate-900 flex flex-col sm:flex-row gap-3 items-start sm:items-center">
-                Welcome to Dokanpat
-              </h1>
+             <h1 className="text-2xl sm:text-4xl font-black tracking-tight text-slate-900 flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+  Welcome to <p><span className="text-orange-600">Dokan</span>pat</p>
+</h1>
               <p className="text-xs sm:text-sm text-slate-600 max-w-xl leading-relaxed">
                 Browse top-tier items from our sellers, add them to your cart, and proceed to instant checkout.
               </p>

@@ -3,7 +3,20 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Logo from './Logo';
-import { Send } from 'lucide-react';
+import { 
+  FaTelegramPlane, 
+  FaFacebookF, 
+  FaInstagram, 
+  FaTwitter, 
+  FaYoutube 
+} from 'react-icons/fa';
+import { 
+  MdSecurity, 
+  MdHeadphones, 
+  MdRefresh, 
+  MdLocalShipping,
+  MdMoney 
+} from 'react-icons/md';
 import toast, { Toaster } from 'react-hot-toast';
 
 export default function Footer() {
@@ -47,31 +60,77 @@ export default function Footer() {
   return (
     <footer className="bg-white border-t border-orange-100 text-slate-800 pt-16 pb-12 shadow-sm">
       <Toaster position="top-right" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8">
         
+      
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pb-12 mb-12 border-b border-orange-100">
+          <div className="flex items-center gap-4 bg-orange-50/50 border border-orange-100 p-4 rounded-2xl">
+            <div className="p-3 bg-orange-600 text-white rounded-xl text-xl shadow-md shadow-orange-500/20">
+              <MdLocalShipping />
+            </div>
+            <div>
+              <h4 className="text-slate-900 text-xs sm:text-sm font-bold">ফাস্ট ডেলিভারি</h4>
+              <p className="text-[11px] text-slate-500">দেশব্যাপী দ্রুত হোম ডেলিভারি</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-4 bg-orange-50/50 border border-orange-100 p-4 rounded-2xl">
+            <div className="p-3 bg-orange-600 text-white rounded-xl text-xl shadow-md shadow-orange-500/20">
+              <MdSecurity />
+            </div>
+            <div>
+              <h4 className="text-slate-900 text-xs sm:text-sm font-bold">সিকিউর প্ল্যাটফর্ম</h4>
+              <p className="text-[11px] text-slate-500">নিরাপদ শপিং অভিজ্ঞতা</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-4 bg-orange-50/50 border border-orange-100 p-4 rounded-2xl">
+            <div className="p-3 bg-orange-600 text-white rounded-xl text-xl shadow-md shadow-orange-500/20">
+              <MdRefresh />
+            </div>
+            <div>
+              <h4 className="text-slate-900 text-xs sm:text-sm font-bold">সহজ রিটার্ন</h4>
+              <p className="text-[11px] text-slate-500">৭ দিনের মধ্যে রিটার্ন সুবিধা</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-4 bg-orange-50/50 border border-orange-100 p-4 rounded-2xl">
+            <div className="p-3 bg-orange-600 text-white rounded-xl text-xl shadow-md shadow-orange-500/20">
+              <MdHeadphones />
+            </div>
+            <div>
+              <h4 className="text-slate-900 text-xs sm:text-sm font-bold">২৪/৭ সাপোর্ট</h4>
+              <p className="text-[11px] text-slate-500">সব সময় আপনার পাশে</p>
+            </div>
+          </div>
+        </div>
+
+       
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-orange-100">
           
+       
           <div className="lg:col-span-2 space-y-4">
             <Logo />
-            <p className="text-sm leading-relaxed text-slate-600 max-w-sm">
+            <p className="text-xs sm:text-sm leading-relaxed text-slate-600 max-w-sm">
               Dokanpat is the ultimate multi-vendor SaaS platform empowering independent sellers to launch, manage, and scale their custom storefronts seamlessly.
             </p>
+            
+         
             <div className="flex items-center space-x-3 pt-2">
-              <a 
-                href="mailto:mizanur.codes@gmail.com" 
-                className="p-2.5 rounded-xl bg-orange-50 border border-orange-100 hover:border-orange-200 text-slate-600 hover:text-orange-600 transition-all"
-                aria-label="Email"
-              >
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                </svg>
+              <a href="https://www.facebook.com/devmizanur" target="_blank" rel="noreferrer" className="p-2.5 rounded-xl bg-orange-50 border border-orange-100 text-slate-600 hover:bg-orange-600 hover:text-white hover:border-orange-600 transition-all">
+                <FaFacebookF className="w-4 h-4" />
+              </a>
+              <a href="https://www.instagram.com/mr.mizanur_/" target="_blank" rel="noreferrer" className="p-2.5 rounded-xl bg-orange-50 border border-orange-100 text-slate-600 hover:bg-orange-600 hover:text-white hover:border-orange-600 transition-all">
+                <FaInstagram className="w-4 h-4" />
+              </a>
+             
+              <a href="https://www.youtube.com/@mizdev" target="_blank" rel="noreferrer" className="p-2.5 rounded-xl bg-orange-50 border border-orange-100 text-slate-600 hover:bg-orange-600 hover:text-white hover:border-orange-600 transition-all">
+                <FaYoutube className="w-4 h-4" />
               </a>
             </div>
           </div>
 
+         
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-900">Platform</h3>
-            <ul className="space-y-2.5 text-sm">
+            <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-900">Platform</h3>
+            <ul className="space-y-2.5 text-xs sm:text-sm">
               <li>
                 <Link href="/" className="hover:text-orange-600 text-slate-600 transition-colors">Home</Link>
               </li>
@@ -87,9 +146,10 @@ export default function Footer() {
             </ul>
           </div>
 
+         
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-900">Support</h3>
-            <ul className="space-y-2.5 text-sm">
+            <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-900">Support</h3>
+            <ul className="space-y-2.5 text-xs sm:text-sm">
               <li>
                 <Link href="/help" className="hover:text-orange-600 text-slate-600 transition-colors">Help Center</Link>
               </li>
@@ -105,8 +165,9 @@ export default function Footer() {
             </ul>
           </div>
 
+        
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-900">Stay Updated</h3>
+            <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-900">Stay Updated</h3>
             <p className="text-xs text-slate-600 leading-relaxed">
               Get the latest updates, features, and tips directly to your inbox.
             </p>
@@ -116,27 +177,36 @@ export default function Footer() {
                   type="email" 
                   name="email"
                   placeholder="Enter your email" 
-                  className="w-full px-4 py-2.5 bg-slate-50 border border-orange-100 rounded-xl text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-orange-500 transition-all shadow-sm"
+                  className="w-full px-4 py-2.5 bg-slate-50 border border-orange-100 rounded-xl text-xs sm:text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-orange-500 transition-all shadow-sm"
                   required
                 />
               </div>
               <button 
                 type="submit" 
                 disabled={subscribing}
-                className="w-full py-2.5 px-4 bg-orange-600 hover:bg-orange-500 text-white text-sm font-semibold rounded-xl shadow-md shadow-orange-500/20 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+                className="w-full py-2.5 px-4 bg-orange-600 hover:bg-orange-500 text-white text-xs font-semibold rounded-xl shadow-md shadow-orange-500/20 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
               >
+                <FaTelegramPlane className="w-4 h-4" />
                 <span>{subscribing ? 'Subscribing...' : 'Subscribe'}</span>
-                
               </button>
             </form>
           </div>
 
         </div>
 
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+      
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 gap-4">
           <p>© {new Date().getFullYear()} দোকানপাট || Dokanpat. All rights reserved.</p>
-          <p className="flex items-center gap-1">
-            Connecting passionate sellers with everyday buyers, with a touch of care.
+          
+         
+          <div className="flex items-center gap-2 font-medium">
+            <span className="px-3 py-1 bg-orange-50 rounded-lg border border-orange-200 text-xs text-orange-700 flex items-center gap-1.5 font-bold">
+              <MdMoney className="text-base text-orange-600" /> Cash on Delivery Available
+            </span>
+          </div>
+
+          <p className="flex items-center gap-1 text-slate-500">
+            Connecting passionate sellers with everyday buyers.
           </p>
         </div>
 

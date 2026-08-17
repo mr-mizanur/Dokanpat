@@ -46,8 +46,8 @@ export default function ShopsPage() {
             
             <div className="space-y-2">
               <h1 className="text-2xl sm:text-4xl font-black tracking-tight text-slate-900 flex flex-wrap items-center gap-2.5">
-                <span>Explore All Stores on</span> 
-                <Logo />
+                <span>Explore All Stores on</span> <p><span className="text-orange-600">Dokan</span>pat</p>
+                
               </h1>
               <p className="text-xs sm:text-sm text-slate-500 max-w-xl">
                 Discover verified merchant stores, browse unique collections, and shop directly from your favorite creators.
