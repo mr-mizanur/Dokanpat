@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { Store, Mail, Lock, User, Phone, Image as ImageIcon, ArrowRight, ShieldCheck, ShoppingBag, MapPin, Loader2 } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
 import { signUp } from '@/lib/auth-client';
+import Logo from '@/components/Logo';
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -189,8 +190,8 @@ export default function RegisterPage() {
       <div className="max-w-md w-full space-y-6 bg-white border border-orange-100 p-8 rounded-3xl shadow-md">
         
         <div className="text-center space-y-2">
-          <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-orange-50 border border-orange-100 text-orange-600 mb-1">
-            <Store className="w-6 h-6" />
+           <div className="inline-flex items-center justify-center  rounded-2xl bg-orange-50 border border-orange-100 text-orange-600 mb-1">
+           <Logo/>
           </div>
           <h1 className="text-2xl font-black tracking-tight text-slate-900">Create Account</h1>
           <p className="text-xs text-slate-500">Join Dokanpat as a Seller or Buyer</p>
